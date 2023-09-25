@@ -1,0 +1,71 @@
+body {
+  background-color: #FAFAFA;
+}
+
+h1,h2{
+  text-align: center;
+}
+
+#top-nav, #footer-nav {
+  background-color: rgba(33, 196, 220, 0.7);
+  color: #4B0082;
+  text-align: center;
+  padding: 1em;
+}
+
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+.section {
+  padding: 20px;
+  margin: 10px;
+  border-radius: 8px;
+}
+
+/* 各セクションに薄い背景色を設定 */
+#section1 {
+  background-color: rgba(255, 182, 193, 0.3);  /* 薄いピンク */
+}
+
+#section2 {
+  background-color: rgba(173, 216, 230, 0.3);  /* 薄いブルー */
+}
+
+#section3 {
+  background-color: rgba(152, 251, 152, 0.3);  /* 薄いグリーン */
+}
+
+@media only screen and (max-width: 600px) {
+  /* スマホ用のスタイル */
+  #top-nav, #footer-nav {
+    padding: 0.5em;
+  }
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  /* タブレット用のスタイル */
+  #top-nav, #footer-nav {
+    padding: 0.8em;
+  }
+  .icon {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  /* PC用のスタイル */
+  /* ここに必要なスタイルを追加 */
+}
