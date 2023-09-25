@@ -1,28 +1,43 @@
 body {
   background-color: #FAFAFA;
+  font-family: 'Roboto', sans-serif;
 }
 
-h1,h2{
+h1,h2,h3,p{
   text-align: center;
 }
 
 #top-nav, #footer-nav {
-  background-color: rgba(33, 196, 220, 0.7);
-  color: #4B0082;
+  background-color: rgba(160, 155, 216, 0.7);
+  color: #000;
   text-align: center;
   padding: 1em;
 }
 
-
-.social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
+header ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
-.icon {
-  width: 24px;
-  height: 24px;
+header li{
+  display: inline;
+  margin-right: 20px;
+}
+header li:last-child{
+  margin-right: 0;
+}
+
+a{
+  text-decoration: none;
+}
+header a:hover{
+  color: purple;
+  background-color: yellow;
+}
+
+header a:active{
+  color: red;
 }
 .section {
   padding: 20px;
@@ -35,7 +50,7 @@ h1,h2{
   background-color: rgba(255, 182, 193, 0.3);  /* 薄いピンク */
 }
 
-#section2 {
+#slides {
   background-color: rgba(173, 216, 230, 0.3);  /* 薄いブルー */
 }
 
@@ -43,14 +58,27 @@ h1,h2{
   background-color: rgba(152, 251, 152, 0.3);  /* 薄いグリーン */
 }
 
+.icon {
+  width: 48px;
+  height: 48px;
+  font-size: 48px;
+}
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+
+
 @media only screen and (max-width: 600px) {
   /* スマホ用のスタイル */
   #top-nav, #footer-nav {
     padding: 0.5em;
   }
   .icon {
-    width: 20px;
-    height: 20px;
+    width: 45px;
+    height: 45px;
   }
 }
 
@@ -60,8 +88,8 @@ h1,h2{
     padding: 0.8em;
   }
   .icon {
-    width: 22px;
-    height: 22px;
+    width: 45px;
+    height: 45px;
   }
 }
 
