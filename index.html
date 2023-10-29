@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>ふじえもんのPortfolio</title>
+  <title>ふじえもんのおへや</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <link rel="icon" type="image/x-icon" href="favicon-32.ico"> 
   <meta name="description" content="ふじえもんのポートフォリオサイトです．ポートフォリオや登壇資料を掲載しています．">
@@ -12,8 +12,10 @@
   <!-- SNSシェア用のメタデータ -->
   <meta property="og:title" content="ふじえもんのおへや">
   <meta property="og:description" content="ふじえもんのポートフォリオサイトです．成果物や登壇資料を掲載しています．">
-  <meta property="og:image" content="image/fujiemon.png">
+  <meta property="og:image" content="https://raw.githubusercontent.com/shotafujie/fujiemon/main/bgfujiemon.png">
   <meta property="og:url" content="https://fujiemon.fujieshota.repl.co/"> <!--後ほどカスタムドメイン取得予定-->
+   <meta property=”og:type” content=”website” />
+   <meta property=”og:site_name” content=”ふじえもんのおへや” />
   <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="style.css"> 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -22,85 +24,104 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
-<body>
-  
-  
-  <header>
-    <div id="top-nav">
-      <h1>ふじえもん
-      <img src="image/fujiemon-white.png" alt="プロフィールアイコン" class="icon">
-      <img src="image/fujiemon-gif.gif" alt="ふじえもんのアイコンのgifです" class="icon">
-      </h1>
-      <p>骨伝導で補聴している学生エンジニア．音に関するプロダクト開発や研究をしています．UN-FROZEN, デフエンジニアの会に所属しています．</p>
-      <br>
-      <p>骨伝導, チーム開発におけるコミュニケーション, 聴覚障害に関する情報保障に興味があります．</p>
-      <nav>
-        <ul>
-          <li><a href="index.html">ホーム</a></li>
-          <li><a href="#section1">ポートフォリオ</a></li>
-          <li><a href="slides.html">登壇資料</a></li>
-          <li><a href="hobbies.html">趣味</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  
-  <div id="content">
-    <div id="section1">
-      <h1>ポートフォリオ</h1>
-        <h2><a href = "https://blowwords.fujieshota.repl.co/">Blow Words</a></h2>
-          <p>あなたの声をシャボン玉のように浮かぶ文字として表示します．</p>
+<body>  
+  <div id="main-container">
+    <header>
+      <div id="top-nav">
+        <h1>ふじえもん
+        <img src="image/fujiemon-white.png" alt="プロフィールアイコン" class="icon">
+        <img src="image/fujiemon-gif.gif" alt="ふじえもんのアイコンのgifです" class="icon">
+        </h1>
+        <p>骨伝導で補聴している学生エンジニア．音に関するプロダクト開発や研究をしています．UN-FROZEN, デフエンジニアの会に所属しています．</p>
+        <br>
+        <p>骨伝導, チーム開発におけるコミュニケーション, 聴覚障害に関する情報保障に興味があります．</p>
+        <nav>
+          <ul>
+            <li><a href="index.html">ホーム</a></li>
+            <li><a href="#section1">ポートフォリオ</a></li>
+            <li><a href="slides.html">登壇資料</a></li>
+            <li><a href="hobbies.html">趣味</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-        <h2><a href = "https://soundhue.fujieshota.repl.co/">SoundHue</a></h2>
-          <p>音源の周波数成分の大きさを可視波長域の色に合わせて描写しています．</p>
-        <!-- <h2>Coming Soon...</h2> -->
-    </div>
-    
+    <div id="content">
+      <div id="section1">
+        <h1>ポートフォリオ</h1>
+        <div class="portfolio-card-container">
+          <div class="card">
+            <img src="image/bgBWs.png" alt="BlowWords" class="card-image">
+            <div class="card-content">
+              <h2 class="card-title"><a href = "https://blowwords.fujieshota.repl.co/">BlowWords</a><img src="image/iconblowwords724.png" alt="BlowWordsのアイコン" class="icon"></h2>
+              <p class="card-description">あなたの声をシャボン玉のように浮かぶ文字として表示します．</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="image/bg-soundhue.png" alt="SoundHue" class="card-image">
+            <div class="card-content">
+              <h2 class="card-title"><a href = "https://soundhue.fujieshota.repl.co/">SoundHue</a></h2>
+              <p class="card-description">音源の周波数成分の大きさを可視波長域の色に合わせて描写しています．</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="image/bg-soundhue.png" alt="Text2Emoji" class="card-image">
+            <div class="card-content">
+              <h2 class="card-title"><a href = "https://text2emoji.fujieshota.repl.co/">Text2Emoji</a></h2>
+              <p class="card-description">テキスト入力した文章あるいはStart🎙️ボタンを押して音声認識した認識結果のうち，単語を対応する絵文字に変換します．</p>
+            </div>
+          </div>
 
-    <div id="section3">
-      <h1>スキル・開発経験</h1>
-        <ul>
-          <li>技育CAMPに2回参加</li>
-          <li><a href = "https://nposw.org/tsukuba230203/">StartupWeekendTsukubaにて優勝</a></li>
-          <li>講義でチーム開発をいくつか経験
-            <p>Java(ウォーターフォール開発),　Node.js(Agile開発)を経験しました．それぞれ3~4人のチームです．
+        </div>
+
+      </div>
+
+      <div id="section3">
+        <h1>スキル・開発経験</h1>
+          <ul>
+            <li>技育CAMPに2回参加しました</li>
+            <li><a href = "https://nposw.org/tsukuba230203/">StartupWeekendTsukubaにて優勝</a></li>
+            <li>講義でチーム開発をいくつか経験しました
+              <p>Java(ウォーターフォール開発),　Node.js(Agile開発)を経験しました．それぞれ3~4人のチームです．
+                <br>
+                経験したことや学びは<a href = "https://note.com/fujiemon_tad/n/n244aa6e76df5">こちらの記事</a>で書きました．
+              </p>
+            </li>
+            <li>特別研究でPythonを主に使用しています．
+              <p>音声認識,音源分離に関するテーマで，実験結果の検定でも用いました．
               <br>
-              経験したことや学びは<a href = "https://note.com/fujiemon_tad/n/n244aa6e76df5">こちらの記事</a>で書きました．
-            </p>
-          </li>
-          <li>特別研究でPythonを主に使用．
-            <p>音声認識,音源分離に関するテーマで，実験結果の検定でも用いました．
-            <br>
-              また，Vimやシェルスクリプト，Dockerなども経験しました．
-            </p>
-            
-            
-          </li>
-          <!-- <li>Ruby on Rails</li>
-            <li>システム開発</li> -->
-          <li>HTML,CSSを使ったホームページ作成
-            <p>所属する開発サークル<a href = "https://un-frozen.jp/">UN-FROZEN</a>のホームページです．</p>
-            <p>所属する大学の学園祭<a href = "https://tenryusai2023.com/">天龍祭2023</a>のホームページです．</p>
-          </li>
-        </ul>
-
-    </div>
-  </div>
+                また，Vimやシェルスクリプト，Dockerなども経験しました．
+              </p>
 
 
-  <footer>
-    <div id="footer-nav">
-      <p>連絡先: <a href="mailto:fujieng1nee7@gmail.com">fujieng1nee7[a]gmail.com </a><br>[a]は@と読み替えてください．</p>
-    <div class="social-icons">
-      <a href="https://twitter.com/fujiengineer"><img src="image/x-logo-white.png" alt="Xのアイコンで，ふじえもんのXプロフィールへのリンクです．" class="icon"></a>
-   
-      <a href="https://note.com/fujiemon_tad/" target="_blank"><img src = "image/note-square.png" alt = "Noteのアイコンで，ふじえもんのNoteプロフィールへのリンクです．" class = "icon" ></a>
-      <a href="https://qiita.com/fujiemon" target="_blank"><img src = "image/qiita-favicon.png" alt = "Qiitaのアイコンで，ふじえもんのQiitaプロフィールへのリンクです．" class = "icon" ></a>
-      <a href="https://zenn.dev/fujiengineer" target="_blank"><img src = "image/zenn.svg" alt = "Zennのアイコンで，ふじえもんのZennプロフィールへのリンクです．" class = "icon" ></a>
-      <a href="https://github.com/shotafujie" target="_blank" aria-label="Githubのアイコンで，ふじえもんのGithubプロフィールへのリンクです．"<i class="fab fa-github icon"></i></a>
+            </li>
+            <!-- <li>Ruby on Rails</li>
+              <li>システム開発</li> -->
+            <li>HTML,CSSを使ったホームページ作成
+              <p>所属する開発サークル<a href = "https://un-frozen.jp/">UN-FROZEN</a>のホームページです．</p>
+              <p>所属する大学の学園祭<a href = "https://tenryusai2023.com/">天龍祭2023</a>のホームページです．</p>
+            </li>
+          </ul>
+
+      </div>
     </div>
-    </div>
-  </footer>
+
+
+    <footer>
+      <div id="footer-nav">
+        <p>連絡先: <a href="mailto:fujieng1nee7@gmail.com">fujieng1nee7[a]gmail.com </a><br>[a]は@と読み替えてください．</p>
+      <div class="social-icons">
+        <a href="https://twitter.com/fujiengineer"><img src="image/x-logo-white.png" alt="Xのアイコンで，ふじえもんのXプロフィールへのリンクです．" class="icon"></a>
+
+        <a href="https://note.com/fujiemon_tad/" target="_blank"><img src = "image/note-square.png" alt = "Noteのアイコンで，ふじえもんのNoteプロフィールへのリンクです．" class = "icon" ></a>
+        <a href="https://qiita.com/fujiemon" target="_blank"><img src = "image/qiita-favicon.png" alt = "Qiitaのアイコンで，ふじえもんのQiitaプロフィールへのリンクです．" class = "icon" ></a>
+        <a href="https://zenn.dev/fujiengineer" target="_blank"><img src = "image/zenn.svg" alt = "Zennのアイコンで，ふじえもんのZennプロフィールへのリンクです．" class = "icon" ></a>
+        <a href="https://github.com/shotafujie" target="_blank" aria-label="Githubのアイコンで，ふじえもんのGithubプロフィールへのリンクです．" class="fab fa-github icon"></a>
+      </div>
+      </div>
+    </footer>
+  </div>  
+
 </body>
 </html>
 
