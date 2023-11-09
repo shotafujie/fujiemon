@@ -127,6 +127,7 @@ header a:active{
   width: 100%;
   height: auto;
   aspect-ratio: 560 / 314;
+  frameborder: 0;
 }
 
 
