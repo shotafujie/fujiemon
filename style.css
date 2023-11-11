@@ -1,5 +1,9 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-  background-color: #FAFAFA;
+  background-color: #214CDC;
   font-family: 'Roboto', sans-serif;
   display: flex;
   flex-direction: column;
@@ -10,18 +14,21 @@ h1,h2,h3{
   text-align: center;
 }
 #main-container {
-  max-width: 1100px;
+  max-width: 100%;
   width: 100%;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 10px;
 }
 #header-nav, #footer-nav {
-  background-color: rgba(160, 155, 216, 0.7);
-  color: #000;
+  background-color: rgba(2, 7, 93, 1.0);
+  color: #A08BD8;
   text-align: center;
   padding: 1em;
 }
-
+nav ul li a{
+  color: #FFFFFF;
+  transition: background-color 0.3s, color 0.3s;
+}
 header ul{
   list-style-type: none;
   margin: 0;
@@ -31,19 +38,25 @@ header ul{
 header li{
   display: inline;
   margin-right: 20px;
+
 }
 header li:last-child{
   margin-right: 0;
 }
 
 header a:hover{
-  color: purple;
-  background-color: yellow;
+  color: #E0E0E0;
+  background-color: #5D9CEC;
 }
 
 header a:active{
   color: red;
 }
+#footer-nav a {
+  color: #E0E0E0;
+  text-shadow: 0px 0px 8px rgba(0,0,0, 0.5); 
+}
+
 .section {
   padding: 20px;
   margin: 10px;
@@ -51,19 +64,19 @@ header a:active{
 }
 
 #section1 {
-  background-color: rgba(255, 182, 193, 0.3);  /* 薄いピンク */
+  background-color: rgba(255, 253, 208, 0.9);
 }
 
 #slides {
-  background-color: rgba(173, 216, 230, 0.3);  /* 薄いブルー */
+  background-color: rgba(244, 102, 102, 0.7);
 }
 
 #section3 {
-  background-color: rgba(152, 251, 152, 0.3);  /* 薄いグリーン */
+  background-color: rgba(222, 207, 164, 0.9);
 }
 
 #hobbies {
-  background-color: rgba(255, 160, 122, 0.3);  /* 薄いオレンジ */
+  background-color: rgba(135, 206, 235, 0.9);
 }
 
 .portfolio-card-container {
@@ -73,15 +86,17 @@ header a:active{
   margin: 20px auto 0 auto;
   max-width: 1100px;
   width: 100%;
-  padding: 0 20px;
+  padding: 0 10px;
+  border-radius: 8px;
 }
 .card {
   background-color: #a09bd8;
-  color: #ffffff;
+  color: #36454F;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  width: 250px;
+  width: 100%;
+  max-width: 250px;
   transition: transform 0.3s, background-color 0.3s, color 0.3s;
 }
 .card:hover {
@@ -109,7 +124,7 @@ header a:active{
 }
 
 .fab {
-  font-family: "Font Awesome 5 Brands";
+  vertical-align: middle;
 }
 .icon {
   width: 36px;
@@ -121,7 +136,18 @@ header a:active{
   justify-content: center;
   gap: 10px;
 }
-
+.social-icons a {
+  background: #E0E0E0;
+  display: inline-block;
+  border-radius: 50%;
+  padding: 10px;
+  margin-bottom: 4px;
+  box-sizing: content-box;
+}
+.social-icons a:hover {
+  transform: translateY(-3px);
+  background-color: #5D9CEC;
+}
 .speakerdeck-iframe {
   border: 0px;
   background: padding-box padding-box rgba(0, 0, 0, 0.1);
@@ -136,13 +162,15 @@ header a:active{
 }
 
 @media only screen and (max-width: 600px) {
-  /* スマホ用のスタイル */
   #header-nav, #footer-nav {
     padding: 0.5em;
   }
   .icon {
-    width: 45px;
-    height: 45px;
+    width: 36px;
+    height: 36px;
+  }
+  .card {
+    max-width: 100%;
   }
 }
 
