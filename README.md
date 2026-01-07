@@ -1,10 +1,10 @@
-# ふじえもんのおへや
+# fujiemon's homepage 
 
-ふじえもんの開発物/研究報告/登壇資料/趣味について記載しています．
-- 個人開発アプリの紹介
-- 登壇資料の公開
-  - RSGT2023，スクフェス福岡，AgilePBL祭りなど
-- お気に入りの本，日本酒，音楽
+fujiemon's development work / research report / presentation / hobbies
+- personal development apps
+- presentationss
+  - RSGT2023, Scrum Fest Fukuoka2023, AgilePBL2023
+- favorite books, sake, music
 
 ---
-最終更新日:2025-12-27
+Updated:2026-01-07

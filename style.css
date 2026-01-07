@@ -44,9 +44,9 @@
   --glass-tint: rgba(33, 196, 220, 0.08);
   --cork: #c4a574;
 
-  /* フォント - UDEV Gothic 35NF優先 */
-  --font-main: 'UDEV Gothic 35NF', 'UDEV Gothic NF', 'M PLUS 1', sans-serif;
-  --font-mono: 'UDEV Gothic 35NF', 'UDEV Gothic NF', 'M PLUS 1 Code', monospace;
+  /* フォント - BIZ UDゴシック */
+  --font-main: 'BIZ UDGothic', sans-serif;
+  --font-mono: 'BIZ UDPGothic', monospace;
 
   /* 間隔 */
   --space-sm: 0.5rem;
@@ -155,6 +155,32 @@ a {
   color: var(--fuji-300);
 }
 
+/* Language Toggle Button */
+.lang-toggle {
+  padding: var(--space-sm) var(--space-md);
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: var(--font-main);
+  color: var(--text-primary);
+  background: linear-gradient(135deg, var(--fuji-500), var(--fuji-600));
+  border: 1px solid var(--fuji-400);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(160, 155, 216, 0.2);
+}
+
+.lang-toggle:hover {
+  background: linear-gradient(135deg, var(--fuji-400), var(--fuji-500));
+  box-shadow: 0 4px 12px rgba(160, 155, 216, 0.3);
+  transform: translateY(-1px);
+}
+
+.lang-toggle:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(160, 155, 216, 0.2);
+}
+
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -197,6 +223,11 @@ a {
 @media (max-width: 640px) {
   .nav-links {
     display: none;
+  }
+
+  .lang-toggle {
+    font-size: 0.8rem;
+    padding: 6px 12px;
   }
 
   .nav-toggle {
@@ -933,6 +964,99 @@ a {
   background: rgba(0, 0, 0, 0.6);
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ===== SHELF ITEM MODAL ===== */
+.shelf-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 15, 0.95);
+  z-index: 1500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.shelf-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.shelf-modal-content {
+  position: relative;
+  max-width: 500px;
+  width: 90%;
+  background: var(--bg-elevated);
+  border: 1px solid rgba(160, 155, 216, 0.3);
+  border-radius: 12px;
+  padding: var(--space-2xl);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  animation: modalSlideUp 0.3s ease-out;
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.shelf-modal-close {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  background: none;
+  border: 1px solid var(--fuji-500);
+  color: var(--fuji-300);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: var(--font-main);
+  font-size: 1.2rem;
+  transition: all 0.2s;
+}
+
+.shelf-modal-close:hover {
+  background: var(--fuji-500);
+  color: white;
+}
+
+.shelf-modal-inner {
+  text-align: center;
+}
+
+.shelf-modal-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+  color: var(--fuji-300);
+}
+
+.shelf-modal-desc {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 640px) {
+  .shelf-modal-content {
+    padding: var(--space-xl);
+  }
+
+  .shelf-modal-title {
+    font-size: 1.2rem;
+  }
+
+  .shelf-modal-desc {
+    font-size: 0.9rem;
+  }
 }
 
 /* ===== SECRET ROOM ===== */

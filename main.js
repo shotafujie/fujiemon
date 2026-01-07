@@ -4,9 +4,11 @@
    =========================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
+    initI18n();
     initWaveform();
     initFlipCards();
     initSecretDoor();
+    initShelfModal();
     initMobileMenu();
     initSmoothScroll();
     initScrollAnimations();
@@ -75,6 +77,73 @@ function initFlipCards() {
             cards.forEach(c => c.classList.remove('flipped'));
         }
     });
+}
+
+/* ===== Shelf Item Modal ===== */
+function initShelfModal() {
+    const modal = document.getElementById('shelfModal');
+    const modalTitle = document.getElementById('shelfModalTitle');
+    const modalDesc = document.getElementById('shelfModalDesc');
+    const closeBtn = document.getElementById('shelfModalClose');
+
+    if (!modal || !modalTitle || !modalDesc || !closeBtn) return;
+
+    // Get all shelf items (books, bottles, records)
+    const shelfItems = document.querySelectorAll('.book, .bottle, .record');
+
+    shelfItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const titleKey = item.getAttribute('data-i18n-title');
+            if (!titleKey) return;
+
+            // Get current language
+            const currentLang = localStorage.getItem('fujiemon_lang') || 'ja';
+            const t = translations[currentLang] || translations['ja'];
+
+            // Get the title and description from i18n
+            const title = getNestedValue(t, titleKey);
+
+            if (title) {
+                // For books, bottles, and records, the title contains the full description
+                // We'll split it by " - " to separate name and description
+                const parts = title.split(' - ');
+                const itemName = parts[0];
+                const itemDesc = parts.length > 1 ? parts.slice(1).join(' - ') : '';
+
+                modalTitle.textContent = itemName;
+                modalDesc.textContent = itemDesc;
+
+                openShelfModal();
+            }
+        });
+    });
+
+    // Close button
+    closeBtn.addEventListener('click', closeShelfModal);
+
+    // Close on background click
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeShelfModal();
+        }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeShelfModal();
+        }
+    });
+
+    function openShelfModal() {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeShelfModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
 }
 
 /* ===== Secret Door ===== */
@@ -296,3 +365,106 @@ document.addEventListener('keydown', (e) => {
         konamiIndex = 0;
     }
 });
+
+/* ===== Internationalization (i18n) ===== */
+function initI18n() {
+    const langToggle = document.getElementById('langToggle');
+    if (!langToggle) return;
+
+    // Get current language from localStorage (default: 'ja')
+    let currentLang = localStorage.getItem('fujiemon_lang') || 'ja';
+
+    // Update page content on load
+    updatePageContent(currentLang);
+
+    // Set up language toggle button
+    langToggle.addEventListener('click', () => {
+        currentLang = currentLang === 'ja' ? 'en' : 'ja';
+        switchLanguage(currentLang);
+    });
+}
+
+function switchLanguage(lang) {
+    // Save to localStorage
+    try {
+        localStorage.setItem('fujiemon_lang', lang);
+    } catch (e) {
+        console.warn('localStorage not available:', e);
+    }
+
+    // Update page content
+    updatePageContent(lang);
+}
+
+function updatePageContent(lang) {
+    const langToggle = document.getElementById('langToggle');
+    if (!langToggle) return;
+
+    // Update language toggle button text
+    langToggle.textContent = lang === 'ja' ? 'EN' : 'JP';
+
+    // Update html lang attribute
+    document.documentElement.lang = lang;
+
+    // Get translations
+    const t = translations[lang] || translations['ja'];
+
+    // Update meta tags
+    document.title = t.meta.title;
+    document.querySelector('meta[name="description"]').setAttribute('content', t.meta.description);
+    document.querySelector('meta[name="keywords"]').setAttribute('content', t.meta.keywords);
+    document.querySelector('meta[property="og:title"]').setAttribute('content', t.meta.ogTitle);
+    document.querySelector('meta[property="og:description"]').setAttribute('content', t.meta.ogDescription);
+    document.querySelector('meta[property="og:site_name"]').setAttribute('content', t.meta.ogSiteName);
+    document.querySelector('meta[name="twitter:title"]').setAttribute('content', t.meta.twitterTitle);
+    document.querySelector('meta[name="twitter:description"]').setAttribute('content', t.meta.twitterDescription);
+    document.querySelector('meta[property="og:locale"]').setAttribute('content', lang === 'ja' ? 'ja_JP' : 'en_US');
+
+    // Update all elements with data-i18n attribute
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        const value = getNestedValue(t, key);
+        if (value) {
+            element.textContent = value;
+        }
+    });
+
+    // Update all elements with data-i18n-title attribute
+    document.querySelectorAll('[data-i18n-title]').forEach(element => {
+        const key = element.getAttribute('data-i18n-title');
+        const value = getNestedValue(t, key);
+        if (value) {
+            element.setAttribute('title', value);
+        }
+    });
+
+    // Update all elements with data-i18n-aria attribute
+    document.querySelectorAll('[data-i18n-aria]').forEach(element => {
+        const key = element.getAttribute('data-i18n-aria');
+        const value = getNestedValue(t, key);
+        if (value) {
+            element.setAttribute('aria-label', value);
+        }
+    });
+
+    // Update all elements with data-i18n-list attribute (for tech tags)
+    document.querySelectorAll('[data-i18n-list]').forEach(element => {
+        const key = element.getAttribute('data-i18n-list');
+        const values = getNestedValue(t, key);
+        if (Array.isArray(values)) {
+            // Clear existing content
+            element.innerHTML = '';
+            // Add new spans for each tech tag
+            values.forEach(value => {
+                const span = document.createElement('span');
+                span.textContent = value;
+                element.appendChild(span);
+            });
+        }
+    });
+}
+
+// Helper function to get nested object value by dot notation path
+function getNestedValue(obj, path) {
+    return path.split('.').reduce((current, key) => current?.[key], obj);
+}

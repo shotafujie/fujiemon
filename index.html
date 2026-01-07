@@ -13,9 +13,9 @@
   <link rel="canonical" href="https://fujiemon.dev">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- UDEV Gothic 35NF（ローカル優先）+ M PLUS 1（フォールバック） -->
+  <!-- BIZ UDゴシック（Google Fonts） -->
   <link
-    href="https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@400;500;600;700&family=M+PLUS+1+Code:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=BIZ+UDGothic:wght@400;700&family=BIZ+UDPGothic:wght@400;700&display=swap"
     rel="stylesheet">
   <!-- SNSシェア用のメタデータ -->
   <meta property="og:title" content="ふじえもんのおへや">
@@ -33,20 +33,6 @@
   <meta name="twitter:description" content="ふじえもんのホームページです．成果物や登壇資料を掲載しています．">
   <meta name="twitter:image" content="https://fujiemon.dev/bgfujiemon.png">
 
-  <style>
-    /* UDEV Gothic 35NF をローカルから読み込み */
-    @font-face {
-      font-family: 'UDEV Gothic 35NF';
-      src: local('UDEV Gothic 35NF'), local('UDEVGothic35NF');
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'UDEV Gothic NF';
-      src: local('UDEV Gothic NF'), local('UDEVGothicNF');
-      font-display: swap;
-    }
-  </style>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -62,12 +48,13 @@
         <span class="logo-text">fujiemon</span>
       </a>
       <div class="nav-links">
-        <a href="#apps" class="nav-link">Apps</a>
-        <a href="#research" class="nav-link">Research</a>
-        <a href="#talks" class="nav-link">Talks</a>
-        <a href="#shelf" class="nav-link">Shelf</a>
+        <a href="#apps" class="nav-link" data-i18n="nav.apps"></a>
+        <a href="#research" class="nav-link" data-i18n="nav.research"></a>
+        <a href="#talks" class="nav-link" data-i18n="nav.talks"></a>
+        <a href="#shelf" class="nav-link" data-i18n="nav.shelf"></a>
       </div>
-      <button class="nav-toggle" id="navToggle" aria-label="メニュー">
+      <button class="lang-toggle" id="langToggle" aria-label="Language Toggle">EN</button>
+      <button class="nav-toggle" id="navToggle" aria-label="メニュー" data-i18n-aria="nav.menu">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -75,10 +62,10 @@
 
   <!-- モバイルメニュー -->
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#apps" class="mobile-link">Apps</a>
-    <a href="#research" class="mobile-link">Research</a>
-    <a href="#talks" class="mobile-link">Talks</a>
-    <a href="#shelf" class="mobile-link">Shelf</a>
+    <a href="#apps" class="mobile-link" data-i18n="nav.apps"></a>
+    <a href="#research" class="mobile-link" data-i18n="nav.research"></a>
+    <a href="#talks" class="mobile-link" data-i18n="nav.talks"></a>
+    <a href="#shelf" class="mobile-link" data-i18n="nav.shelf"></a>
   </div>
 
   <!-- ===== HERO ===== -->
@@ -91,9 +78,9 @@
       <div class="hero-profile">
         <div class="profile-avatar"><img src="image/fujiemon.png" alt="fujiemonのアイコン" width="100" height="100"></div>
         <div class="profile-info">
-          <h1 class="profile-name">ふじえもん</h1>
-          <p class="profile-tagline">骨伝導で補聴している難聴エンジニア</p>
-          <p class="profile-bio">音声信号処理 / 骨伝導 / アプリ開発 / Agile / コミュニケーション / 日本酒</p>
+          <h1 class="profile-name" data-i18n="hero.name"></h1>
+          <p class="profile-tagline" data-i18n="hero.tagline"></p>
+          <p class="profile-bio" data-i18n="hero.bio"></p>
         </div>
       </div>
 
@@ -112,18 +99,18 @@
           </svg>
         </a>
         <a href="https://note.com/fujiemon_tad/" target="_blank" rel="noopener" class="social-btn" aria-label="note">
-          <img src="image/note-square.png" alt="note" width="22" height="22">
+          <img src="image/note-square.png" alt="note" width="22" height="22" style="background-color: white;">
         </a>
         <a href="https://qiita.com/fujiemon" target="_blank" rel="noopener" class="social-btn" aria-label="Qiita">
           <img src="image/qiita-favicon.png" alt="Qiita" width="22" height="22">
         </a>
         <a href="https://zenn.dev/fujiengineer" target="_blank" rel="noopener" class="social-btn" aria-label="Zenn">
-          <img src="image/zenn.svg" alt="Zenn" width="22" height="22">
+          <img src="image/zenn-logo-only.svg" alt="Zenn" width="22" height="22">
         </a>
       </div>
 
       <div class="scroll-hint">
-        <span>Scroll</span>
+        <span data-i18n="hero.scroll"></span>
         <div class="scroll-arrow"></div>
       </div>
     </div>
@@ -133,8 +120,8 @@
   <section class="section apps-section" id="apps">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Apps</h2>
-        <p class="section-subtitle">つくったもの - クリックで詳細</p>
+        <h2 class="section-title" data-i18n="apps.title"></h2>
+        <p class="section-subtitle" data-i18n="apps.subtitle"></p>
       </div>
 
       <div class="metal-rack">
@@ -145,16 +132,15 @@
               <div class="card-inner">
                 <div class="card-front">
                   <span class="app-icon">🎙️</span>
-                  <h3 class="app-name">asrivia</h3>
-                  <span class="app-tag">Desktop</span>
+                  <h3 class="app-name" data-i18n="apps.asrivia.name"></h3>
+                  <span class="app-tag" data-i18n="apps.asrivia.tag"></span>
                 </div>
                 <div class="card-back">
-                  <h3>asrivia</h3>
-                  <p>ローカル音声認識の結果をPicture-in-Pictureで常時表示．翻訳機能も搭載．</p>
-                  <div class="card-tech">
-                    <span>Python</span><span>ASR</span><span>ローカル</span><span>PiP表示</span><span>翻訳</span>
-                  </div>
-                  <a href="https://github.com/shotafujie/asrivia" target="_blank" class="card-link">GitHub →</a>
+                  <h3 data-i18n="apps.asrivia.name"></h3>
+                  <p data-i18n="apps.asrivia.description"></p>
+                  <div class="card-tech" data-i18n-list="apps.asrivia.tech"></div>
+                  <a href="https://github.com/shotafujie/asrivia" target="_blank" class="card-link"
+                    data-i18n="apps.asrivia.link"></a>
                 </div>
               </div>
             </div>
@@ -164,16 +150,15 @@
               <div class="card-inner">
                 <div class="card-front">
                   <span class="app-icon">📊</span>
-                  <h3 class="app-name">asrlance</h3>
-                  <span class="app-tag">CLI</span>
+                  <h3 class="app-name" data-i18n="apps.asrlance.name"></h3>
+                  <span class="app-tag" data-i18n="apps.asrlance.tag"></span>
                 </div>
                 <div class="card-back">
-                  <h3>asrlance</h3>
-                  <p>音声認識の性能評価ツール．精度・処理時間・CPU使用率を計測．</p>
-                  <div class="card-tech">
-                    <span>Python</span><span>ASR</span>
-                  </div>
-                  <a href="https://github.com/shotafujie/asrlance" target="_blank" class="card-link">GitHub →</a>
+                  <h3 data-i18n="apps.asrlance.name"></h3>
+                  <p data-i18n="apps.asrlance.description"></p>
+                  <div class="card-tech" data-i18n-list="apps.asrlance.tech"></div>
+                  <a href="https://github.com/shotafujie/asrlance" target="_blank" class="card-link"
+                    data-i18n="apps.asrlance.link"></a>
                 </div>
               </div>
             </div>
@@ -183,16 +168,15 @@
               <div class="card-inner">
                 <div class="card-front">
                   <span class="app-icon">🤖</span>
-                  <h3 class="app-name">entaku</h3>
-                  <span class="app-tag">CLI</span>
+                  <h3 class="app-name" data-i18n="apps.entaku.name"></h3>
+                  <span class="app-tag" data-i18n="apps.entaku.tag"></span>
                 </div>
                 <div class="card-back">
-                  <h3>entaku</h3>
-                  <p>マルチペルソナAI円卓議論システム．ローカルLLMとOllamaで動作．</p>
-                  <div class="card-tech">
-                    <span>Python</span><span>Ollama</span>
-                  </div>
-                  <a href="https://github.com/shotafujie/entaku" target="_blank" class="card-link">GitHub →</a>
+                  <h3 data-i18n="apps.entaku.name"></h3>
+                  <p data-i18n="apps.entaku.description"></p>
+                  <div class="card-tech" data-i18n-list="apps.entaku.tech"></div>
+                  <a href="https://github.com/shotafujie/entaku" target="_blank" class="card-link"
+                    data-i18n="apps.entaku.link"></a>
                 </div>
               </div>
             </div>
@@ -202,17 +186,15 @@
               <div class="card-inner">
                 <div class="card-front">
                   <span class="app-icon">📌</span>
-                  <h3 class="app-name">PinnedBot</h3>
-                  <span class="app-tag">Bot</span>
+                  <h3 class="app-name" data-i18n="apps.pinnedBot.name"></h3>
+                  <span class="app-tag" data-i18n="apps.pinnedBot.tag"></span>
                 </div>
                 <div class="card-back">
-                  <h3>PinnedDiscord<br>Bot</h3>
-                  <p>特定の絵文字📌リアクションでDiscord投稿を自動ピン留め．</p>
-                  <div class="card-tech">
-                    <span>Python</span><span>Discord</span>
-                  </div>
-                  <a href="https://github.com/shotafujie/PinnedDiscordBot" target="_blank" class="card-link">GitHub
-                    →</a>
+                  <h3 data-i18n="apps.pinnedBot.fullName"></h3>
+                  <p data-i18n="apps.pinnedBot.description"></p>
+                  <div class="card-tech" data-i18n-list="apps.pinnedBot.tech"></div>
+                  <a href="https://github.com/shotafujie/PinnedDiscordBot" target="_blank" class="card-link"
+                    data-i18n="apps.pinnedBot.link"></a>
                 </div>
               </div>
             </div>
@@ -222,16 +204,15 @@
               <div class="card-inner">
                 <div class="card-front">
                   <span class="app-icon">✨</span>
-                  <h3 class="app-name">Predy</h3>
-                  <span class="app-tag">CLI</span>
+                  <h3 class="app-name" data-i18n="apps.predy.name"></h3>
+                  <span class="app-tag" data-i18n="apps.predy.tag"></span>
                 </div>
                 <div class="card-back">
-                  <h3>Predy</h3>
-                  <p>音声認識結果の誤りを賢く修正提案．Vimスタイルで手軽に編集可．</p>
-                  <div class="card-tech">
-                    <span>Python</span><span>NLP</span>
-                  </div>
-                  <a href="https://github.com/shotafujie/Predy" target="_blank" class="card-link">GitHub →</a>
+                  <h3 data-i18n="apps.predy.name"></h3>
+                  <p data-i18n="apps.predy.description"></p>
+                  <div class="card-tech" data-i18n-list="apps.predy.tech"></div>
+                  <a href="https://github.com/shotafujie/Predy" target="_blank" class="card-link"
+                    data-i18n="apps.predy.link"></a>
                 </div>
               </div>
             </div>
@@ -241,16 +222,15 @@
               <div class="card-inner">
                 <div class="card-front">
                   <span class="app-icon">📚</span>
-                  <h3 class="app-name">BookCover</h3>
-                  <span class="app-tag">Web</span>
+                  <h3 class="app-name" data-i18n="apps.bookCover.name"></h3>
+                  <span class="app-tag" data-i18n="apps.bookCover.tag"></span>
                 </div>
                 <div class="card-back">
-                  <h3>BookCoverMaker</h3>
-                  <p>本の表紙を簡単に作成できるWebツール．</p>
-                  <div class="card-tech">
-                    <span>JavaScript</span><span>Canvas</span>
-                  </div>
-                  <a href="https://github.com/shotafujie/BookCoverMaker" target="_blank" class="card-link">GitHub →</a>
+                  <h3 data-i18n="apps.bookCover.fullName"></h3>
+                  <p data-i18n="apps.bookCover.description"></p>
+                  <div class="card-tech" data-i18n-list="apps.bookCover.tech"></div>
+                  <a href="https://github.com/shotafujie/BookCoverMaker" target="_blank" class="card-link"
+                    data-i18n="apps.bookCover.link"></a>
                 </div>
               </div>
             </div>
@@ -260,16 +240,15 @@
               <div class="card-inner">
                 <div class="card-front">
                   <span class="app-icon">🎨</span>
-                  <h3 class="app-name">ColorAssist</h3>
-                  <span class="app-tag">Web</span>
+                  <h3 class="app-name" data-i18n="apps.colorAssist.name"></h3>
+                  <span class="app-tag" data-i18n="apps.colorAssist.tag"></span>
                 </div>
                 <div class="card-back">
-                  <h3>ColorAssist</h3>
-                  <p>画像のWCAGアクセシビリティ準拠をコントラスト比で自動チェック．</p>
-                  <div class="card-tech">
-                    <span>JavaScript</span><span>WCAG</span>
-                  </div>
-                  <a href="https://github.com/shotafujie/ColorAssist" target="_blank" class="card-link">GitHub →</a>
+                  <h3 data-i18n="apps.colorAssist.name"></h3>
+                  <p data-i18n="apps.colorAssist.description"></p>
+                  <div class="card-tech" data-i18n-list="apps.colorAssist.tech"></div>
+                  <a href="https://github.com/shotafujie/ColorAssist" target="_blank" class="card-link"
+                    data-i18n="apps.colorAssist.link"></a>
                 </div>
               </div>
             </div>
@@ -279,16 +258,15 @@
               <div class="card-inner">
                 <div class="card-front">
                   <span class="app-icon">📄</span>
-                  <h3 class="app-name">arXiv2Discord</h3>
-                  <span class="app-tag">Bot</span>
+                  <h3 class="app-name" data-i18n="apps.arXiv2Discord.name"></h3>
+                  <span class="app-tag" data-i18n="apps.arXiv2Discord.tag"></span>
                 </div>
                 <div class="card-back">
-                  <h3>arXiv2Discord</h3>
-                  <p>arXiv論文を取得・要約してDiscordへ自動投稿．GitHub Actions連携．</p>
-                  <div class="card-tech">
-                    <span>Python</span><span>Actions</span>
-                  </div>
-                  <a href="https://github.com/shotafujie/arXiv2Discord" target="_blank" class="card-link">GitHub →</a>
+                  <h3 data-i18n="apps.arXiv2Discord.name"></h3>
+                  <p data-i18n="apps.arXiv2Discord.description"></p>
+                  <div class="card-tech" data-i18n-list="apps.arXiv2Discord.tech"></div>
+                  <a href="https://github.com/shotafujie/arXiv2Discord" target="_blank" class="card-link"
+                    data-i18n="apps.arXiv2Discord.link"></a>
                 </div>
               </div>
             </div>
@@ -298,16 +276,15 @@
               <div class="card-inner">
                 <div class="card-front">
                   <span class="app-icon">🌈</span>
-                  <h3 class="app-name">SoundHue</h3>
-                  <span class="app-tag">Web</span>
+                  <h3 class="app-name" data-i18n="apps.soundHue.name"></h3>
+                  <span class="app-tag" data-i18n="apps.soundHue.tag"></span>
                 </div>
                 <div class="card-back">
-                  <h3>SoundHue</h3>
-                  <p>音源の周波数成分を可視光スペクトルの色で描画．</p>
-                  <div class="card-tech">
-                    <span>JavaScript</span><span>WebAudio</span>
-                  </div>
-                  <a href="https://github.com/shotafujie/SoundHue" target="_blank" class="card-link">GitHub →</a>
+                  <h3 data-i18n="apps.soundHue.name"></h3>
+                  <p data-i18n="apps.soundHue.description"></p>
+                  <div class="card-tech" data-i18n-list="apps.soundHue.tech"></div>
+                  <a href="https://github.com/shotafujie/SoundHue" target="_blank" class="card-link"
+                    data-i18n="apps.soundHue.link"></a>
                 </div>
               </div>
             </div>
@@ -322,52 +299,51 @@
   <section class="section research-section" id="research">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Research</h2>
-        <p class="section-subtitle">研究・論文</p>
+        <h2 class="section-title" data-i18n="research.title"></h2>
+        <p class="section-subtitle" data-i18n="research.subtitle"></p>
       </div>
 
       <div class="steel-shelf">
         <div class="research-grid">
           <article class="research-item">
-            <div class="research-year">2024</div>
-            <h3 class="research-title">混合音声から抽出した発話の聴取に関する聴者・難聴者の比較</h3>
-            <p class="research-venue">2024秋季日本音響学会研究発表会</p>
-            <p class="research-desc">混合音声から音声分離技術で抽出した発話の聴取について，聴者と難聴者を比較した研究．</p>
+            <div class="research-year" data-i18n="research.paper1.year"></div>
+            <h3 class="research-title" data-i18n="research.paper1.title"></h3>
+            <p class="research-venue" data-i18n="research.paper1.venue"></p>
+            <p class="research-desc" data-i18n="research.paper1.description"></p>
             <div class="research-links">
-              <a href="https://jglobal.jst.go.jp/detail?JGLOBAL_ID=202402222227109328" target="_blank">Paper</a>
+              <a href="https://jglobal.jst.go.jp/detail?JGLOBAL_ID=202402222227109328" target="_blank"
+                data-i18n="research.paper1.link"></a>
             </div>
           </article>
 
           <article class="research-item">
-            <div class="research-year">2024</div>
-            <h3 class="research-title">混合音声から抽出した難聴者の発話の聞き取りやすさに関する客観的および主観的な評価による検討</h3>
-            <p class="research-venue">研究報告アクセシビリティ (AAC), 2024(17)</p>
-            <p class="research-desc">混合音声から抽出した難聴者の発話について，客観・主観両面から聞き取りやすさを評価．学生奨励賞・ヤマハ賞受賞．</p>
+            <div class="research-year" data-i18n="research.paper2.year"></div>
+            <h3 class="research-title" data-i18n="research.paper2.title"></h3>
+            <p class="research-venue" data-i18n="research.paper2.venue"></p>
+            <p class="research-desc" data-i18n="research.paper2.description"></p>
             <div class="research-links">
-              <a href="https://ipsj.ixsq.nii.ac.jp/ej/?action=pages_view_main&active_action=repository_view_main_item_detail&item_id=233189&item_no=1&page_id=13&block_id=8"
-                target="_blank">Paper</a>
+              <a href="https://ipsj.ixsq.nii.ac.jp/records/233189" target="_blank" data-i18n="research.paper2.link"></a>
             </div>
           </article>
 
           <article class="research-item">
-            <div class="research-year">2024</div>
-            <h3 class="research-title">伝音性難聴のある成人による軟骨伝導型振動子の装着位置の検討</h3>
-            <p class="research-venue">音声コミュニケーション研究会資料, 4(1)</p>
-            <p class="research-desc">頭部固定位置による純音聴力レベルと文章了解度の変化を検討．</p>
+            <div class="research-year" data-i18n="research.paper3.year"></div>
+            <h3 class="research-title" data-i18n="research.paper3.title"></h3>
+            <p class="research-venue" data-i18n="research.paper3.venue"></p>
+            <p class="research-desc" data-i18n="research.paper3.description"></p>
             <div class="research-links">
-              <a href="https://www.jstage.jst.go.jp/article/asjsc/4/1/4_SC-2024-10/_article/-char/ja/"
-                target="_blank">Paper</a>
+              <a href="https://www.jstage.jst.go.jp/article/asjsc/4/1/4_SC-2024-10/_article/-char/ja/" target="_blank"
+                data-i18n="research.paper3.link"></a>
             </div>
           </article>
 
           <article class="research-item">
-            <div class="research-year">2023</div>
-            <h3 class="research-title">ろう・難聴者と聴者のグループ対話における理解度・参加度の高いコミュニケーションストラテジー</h3>
-            <p class="research-venue">研究報告アクセシビリティ (AAC), 2023(7)</p>
-            <p class="research-desc">グループ対話における効果的なコミュニケーション方略を分析した研究．</p>
+            <div class="research-year" data-i18n="research.paper4.year"></div>
+            <h3 class="research-title" data-i18n="research.paper4.title"></h3>
+            <p class="research-venue" data-i18n="research.paper4.venue"></p>
+            <p class="research-desc" data-i18n="research.paper4.description"></p>
             <div class="research-links">
-              <a href="https://ipsj.ixsq.nii.ac.jp/ej/index.php?active_action=repository_view_main_item_detail&page_id=13&block_id=8&item_id=231333&item_no=1"
-                target="_blank">Paper</a>
+              <a href="https://ipsj.ixsq.nii.ac.jp/records/231333" target="_blank" data-i18n="research.paper4.link"></a>
             </div>
           </article>
         </div>
@@ -379,46 +355,46 @@
   <section class="section talks-section" id="talks">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Talks</h2>
-        <p class="section-subtitle">登壇資料</p>
+        <h2 class="section-title" data-i18n="talks.title"></h2>
+        <p class="section-subtitle" data-i18n="talks.subtitle"></p>
       </div>
 
       <div class="cork-board">
         <div class="talks-grid">
           <article class="talk-card">
             <div class="pin"></div>
-            <span class="talk-date">2023.01</span>
-            <h3 class="talk-title">RSGT2023</h3>
-            <p class="talk-desc">聴覚障害のある大学生チームによる臆さない発言環境の形成</p>
+            <span class="talk-date" data-i18n="talks.rsgt2023.date"></span>
+            <h3 class="talk-title" data-i18n="talks.rsgt2023.title"></h3>
+            <p class="talk-desc" data-i18n="talks.rsgt2023.description"></p>
             <a href="https://speakerdeck.com/hayato_ukuk/zi-mu-ting-jue-zhang-hai-noaruda-xue-sheng-timuniyoruyi-sanaifa-yan-huan-jing-noxing-cheng"
-              target="_blank" class="talk-link">スライドを見る →</a>
+              target="_blank" class="talk-link" data-i18n="talks.rsgt2023.link"></a>
           </article>
 
           <article class="talk-card">
             <div class="pin"></div>
-            <span class="talk-date">2023.03</span>
-            <h3 class="talk-title">スクフェス福岡</h3>
-            <p class="talk-desc">聴こえに依らずワイワイ発言しつつガシガシ開発するために必要なこと</p>
+            <span class="talk-date" data-i18n="talks.scrum2023.date"></span>
+            <h3 class="talk-title" data-i18n="talks.scrum2023.title"></h3>
+            <p class="talk-desc" data-i18n="talks.scrum2023.description"></p>
             <a href="https://speakerdeck.com/fujiemon/ting-koeniyi-razu-waiwaifa-yan-situtugasigasikai-fa-suru-tamenibi-yao-nakoto-sukuhuesufu-gang"
-              target="_blank" class="talk-link">スライドを見る →</a>
+              target="_blank" class="talk-link" data-i18n="talks.scrum2023.link"></a>
           </article>
 
           <article class="talk-card">
             <div class="pin"></div>
-            <span class="talk-date">2024.02</span>
-            <h3 class="talk-title">UN-FROZEN LT会</h3>
-            <p class="talk-desc">聴覚障害と音声情報処理</p>
+            <span class="talk-date" data-i18n="talks.unfrozen2024.date"></span>
+            <h3 class="talk-title" data-i18n="talks.unfrozen2024.title"></h3>
+            <p class="talk-desc" data-i18n="talks.unfrozen2024.description"></p>
             <a href="https://speakerdeck.com/fujiemon/ting-jue-zhang-hai-toyin-sheng-qing-bao-chu-li" target="_blank"
-              class="talk-link">スライドを見る →</a>
+              class="talk-link" data-i18n="talks.unfrozen2024.link"></a>
           </article>
 
           <article class="talk-card">
             <div class="pin"></div>
-            <span class="talk-date">2024.03</span>
-            <h3 class="talk-title">AgilePBL祭り2024</h3>
-            <p class="talk-desc">学生としてRSGT2024に参加して得られた学び</p>
+            <span class="talk-date" data-i18n="talks.agilePbl2024.date"></span>
+            <h3 class="talk-title" data-i18n="talks.agilePbl2024.title"></h3>
+            <p class="talk-desc" data-i18n="talks.agilePbl2024.description"></p>
             <a href="https://speakerdeck.com/fujiemon/lessons-learned-from-participating-in-rsgt2024-as-a-student"
-              target="_blank" class="talk-link">スライドを見る →</a>
+              target="_blank" class="talk-link" data-i18n="talks.agilePbl2024.link"></a>
           </article>
         </div>
       </div>
@@ -429,25 +405,25 @@
   <section class="section shelf-section" id="shelf">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Shelf</h2>
-        <p class="section-subtitle">本・酒・音楽</p>
+        <h2 class="section-title" data-i18n="shelf.title"></h2>
+        <p class="section-subtitle" data-i18n="shelf.subtitle"></p>
       </div>
 
       <div class="shelves-container">
         <!-- 本棚 - 木製 -->
         <div class="shelf wood-shelf">
-          <h3 class="shelf-label">📕 Books</h3>
+          <h3 class="shelf-label" data-i18n="shelf.books.label"></h3>
           <!-- 1段目 -->
           <div class="shelf-row">
             <div class="shelf-items books">
-              <div class="book" style="--book-color: #2F4F4F;" title="サーバントリーダーシップ - チームの良さを引き出すリーダーシップ論">
-                <span class="book-spine">Servant</span>
+              <div class="book" style="--book-color: #2F4F4F;" data-i18n-title="shelf.books.servant">
+                <span class="book-spine"></span>
               </div>
-              <div class="book" style="--book-color: #4A0E4E;" title="技術書の読書術 - 本の選び方からメモ管理まで">
-                <span class="book-spine">読書術</span>
+              <div class="book" style="--book-color: #4A0E4E;" data-i18n-title="shelf.books.reading">
+                <span class="book-spine"></span>
               </div>
-              <div class="book" style="--book-color: #1a5f7a;" title="浜村渚の計算ノート - 数学が好きな少女の物語">
-                <span class="book-spine">浜村渚</span>
+              <div class="book" style="--book-color: #1a5f7a;" data-i18n-title="shelf.books.hamura">
+                <span class="book-spine"></span>
               </div>
             </div>
             <div class="shelf-board"></div>
@@ -455,14 +431,14 @@
           <!-- 2段目 -->
           <div class="shelf-row">
             <div class="shelf-items books">
-              <div class="book secret-book" style="--book-color: #8B0000;" title="???">
-                <span class="book-spine">???</span>
+              <div class="book secret-book" style="--book-color: #8B0000;" data-i18n-title="shelf.books.secret">
+                <span class="book-spine"></span>
               </div>
-              <div class="book" style="--book-color: #2d5a27;" title="Dr.STONE - 科学の楽しさが詰まった漫画">
-                <span class="book-spine">Dr.STONE</span>
+              <div class="book" style="--book-color: #2d5a27;" data-i18n-title="shelf.books.drstone">
+                <span class="book-spine"></span>
               </div>
-              <div class="book" style="--book-color: #a9953c;" title="東京バンドワゴン - 愛溢れる下町大家族物語">
-                <span class="book-spine">東京バンドワゴン</span>
+              <div class="book" style="--book-color: #a9953c;" data-i18n-title="shelf.books.bandwagon">
+                <span class="book-spine"></span>
               </div>
             </div>
             <div class="shelf-board"></div>
@@ -471,21 +447,21 @@
 
         <!-- 酒棚 - ガラス -->
         <div class="shelf glass-shelf">
-          <h3 class="shelf-label">🍶 Sake</h3>
+          <h3 class="shelf-label" data-i18n="shelf.sake.label"></h3>
           <!-- 1段目 -->
           <div class="shelf-row">
             <div class="shelf-items bottles">
-              <div class="bottle" title="八仙 ピンクラベル吟醸 - 最初に呑んだ日本酒">
+              <div class="bottle" data-i18n-title="shelf.sake.hachinohe">
                 <div class="bottle-body"></div>
-                <span class="bottle-label">八仙</span>
+                <span class="bottle-label"></span>
               </div>
-              <div class="bottle" title="田酒 - 特別な日に飲む地酒">
+              <div class="bottle" data-i18n-title="shelf.sake.tasake">
                 <div class="bottle-body"></div>
-                <span class="bottle-label">田酒</span>
+                <span class="bottle-label"></span>
               </div>
-              <div class="bottle" title="シーバスリーガルミズナラ - 甘めのウィスキー">
+              <div class="bottle" data-i18n-title="shelf.sake.mizunara">
                 <div class="bottle-body"></div>
-                <span class="bottle-label">ミズナラ</span>
+                <span class="bottle-label"></span>
               </div>
             </div>
             <div class="shelf-board glass"></div>
@@ -495,18 +471,18 @@
 
         <!-- 音楽棚 - 黒スチール -->
         <div class="shelf black-shelf">
-          <h3 class="shelf-label">🎸 Music</h3>
+          <h3 class="shelf-label" data-i18n="shelf.music.label"></h3>
           <!-- 1段目 -->
           <div class="shelf-row">
             <div class="shelf-items records">
-              <div class="record" title="竹渕慶 - 力強い歌声．オススメはTorch">
+              <div class="record" data-i18n-title="shelf.music.takebuchi">
                 <div class="record-cover" style="--cover-color: #e74c3c;">
-                  <span class="record-title">竹渕慶</span>
+                  <span class="record-title"></span>
                 </div>
               </div>
-              <div class="record" title="Snarky Puppy - ジャズ・フュージョン．オススメはLingus">
+              <div class="record" data-i18n-title="shelf.music.snarky">
                 <div class="record-cover" style="--cover-color: #3498db;">
-                  <span class="record-title">Snarky Puppy</span>
+                  <span class="record-title"></span>
                 </div>
               </div>
             </div>
@@ -515,14 +491,14 @@
           <!-- 2段目 -->
           <div class="shelf-row">
             <div class="shelf-items records">
-              <div class="record" title="Larnell Lewis - グルーヴ最高のドラマー．オススメはChange Your Mind">
+              <div class="record" data-i18n-title="shelf.music.larnell">
                 <div class="record-cover" style="--cover-color: #9b59b6;">
-                  <span class="record-title">Larnell Lewis</span>
+                  <span class="record-title"></span>
                 </div>
               </div>
-              <div class="record" title="DOMOTO - いくつになってもかっこいい堂本兄弟．オススメは薔薇と太陽">
+              <div class="record" data-i18n-title="shelf.music.domoto">
                 <div class="record-cover" style="--cover-color: #27ae60;">
-                  <span class="record-title">DOMOTO</span>
+                  <span class="record-title"></span>
                 </div>
               </div>
             </div>
@@ -533,29 +509,40 @@
     </div>
   </section>
 
+  <!-- ===== SHELF ITEM MODAL - 棚アイテム詳細 ===== -->
+  <section class="shelf-modal" id="shelfModal">
+    <div class="shelf-modal-content">
+      <button class="shelf-modal-close" id="shelfModalClose">✕</button>
+      <div class="shelf-modal-inner">
+        <h2 class="shelf-modal-title" id="shelfModalTitle"></h2>
+        <p class="shelf-modal-desc" id="shelfModalDesc"></p>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== SECRET ROOM - 隠し部屋 ===== -->
   <section class="secret-room" id="secretRoom">
     <div class="secret-content">
-      <button class="secret-close" id="secretClose">✕ 閉じる</button>
+      <button class="secret-close" id="secretClose" data-i18n="secret.close"></button>
       <div class="secret-inner">
-        <h2 class="secret-title">🚪 Secret Room</h2>
-        <p class="secret-desc">隠し部屋へようこそ！</p>
+        <h2 class="secret-title" data-i18n="secret.title"></h2>
+        <p class="secret-desc" data-i18n="secret.description"></p>
 
         <div class="secret-grid">
           <div class="secret-card">
             <span class="secret-icon">🎮</span>
-            <h3>好きなゲーム</h3>
-            <p>FLi，ポケノブ，テトリス</p>
+            <h3 data-i18n="secret.game.title"></h3>
+            <p data-i18n="secret.game.content"></p>
           </div>
           <div class="secret-card">
             <span class="secret-icon">🍣</span>
-            <h3>好きな寿司ネタ</h3>
-            <p>ホタテ，穴子...</p>
+            <h3 data-i18n="secret.sushi.title"></h3>
+            <p data-i18n="secret.sushi.content"></p>
           </div>
           <div class="secret-card">
             <span class="secret-icon">✨</span>
-            <h3>最近ハマってること</h3>
-            <p>書店巡り，浮世絵鑑賞</p>
+            <h3 data-i18n="secret.recent.title"></h3>
+            <p data-i18n="secret.recent.content"></p>
           </div>
         </div>
       </div>
@@ -565,10 +552,11 @@
   <!-- フッター -->
   <footer class="footer">
     <div class="container">
-      <p>© 2025 ふじえもん</p>
+      <p data-i18n="footer.copyright"></p>
     </div>
   </footer>
 
+  <script src="i18n.js"></script>
   <script src="main.js"></script>
 </body>
 
