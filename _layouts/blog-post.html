@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: 'ja' }}">
+<head>
+  {% include blog-head.html %}
+</head>
+<body>
+  <div class="bg-room"></div>
+
+  {% include blog-nav.html %}
+
+  <main class="blog-main">
+    <article class="blog-article">
+      <header class="blog-header">
+        <div class="blog-meta">
+          <time class="blog-date" datetime="{{ page.date | date: '%Y-%m-%d' }}">
+            {{ page.date | date: "%Y.%m.%d" }}
+          </time>
+          {% if page.tags.size > 0 %}
+          <div class="blog-tags">
+            {% for tag in page.tags %}
+            <span class="blog-tag">{{ tag }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+        <h1 class="blog-title">{{ page.title }}</h1>
+      </header>
+
+      <div class="blog-toolbar">
+        <button class="slide-toggle" id="slideToggle" aria-label="スライド表示切替">
+          <span class="slide-toggle-icon">&#9654;</span>
+          <span class="slide-toggle-label">スライド表示</span>
+        </button>
+      </div>
+
+      <div class="blog-content" id="blogContent">
+        {{ content }}
+      </div>
+    </article>
+
+    <footer class="blog-footer">
+      <a href="/blog/" class="blog-back">&larr; 記事一覧にもどる</a>
+    </footer>
+  </main>
+
+  <script src="/js/blog.js"></script>
+  <script>
+    // Mobile menu toggle
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (navToggle && mobileMenu) {
+      navToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+        navToggle.classList.toggle('active');
+      });
+      mobileMenu.querySelectorAll('.mobile-link').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('active');
+          navToggle.classList.remove('active');
+        });
+      });
+    }
+  </script>
+</body>
+</html>

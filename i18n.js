@@ -17,6 +17,7 @@ const translations = {
     },
     // ナビゲーション
     nav: {
+      blog: "Blog",
       apps: "Apps",
       research: "Research",
       awards: "Awards",
@@ -268,6 +269,7 @@ const translations = {
     },
     // Navigation
     nav: {
+      blog: "Blog",
       apps: "Apps",
       research: "Research",
       awards: "Awards",
