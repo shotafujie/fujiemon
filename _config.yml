@@ -1,4 +1,18 @@
-theme: jekyll-theme-minimal
-title: ふじえもん's homepage
-description: There are fujiemon's product,slides
-ｐermalink: /fujiemon/top.html
+title: ふじえもんのおへや
+description: fujiemon's homepage
+url: https://fujiemon.dev
+
+permalink: /blog/:year/:month/:title/
+
+defaults:
+  - scope:
+      path: "_posts"
+      type: "posts"
+    values:
+      layout: blog-post
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - .claude
