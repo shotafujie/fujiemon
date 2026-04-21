@@ -26,3 +26,33 @@
 
 <link rel="stylesheet" href="/style.css">
 <link rel="stylesheet" href="/css/blog.css">
+
+<!-- JSON-LD: BlogPosting -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ page.title | jsonify }},
+  "description": {{ page.excerpt | strip_html | truncate: 160 | jsonify }},
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.date | date_to_xmlschema }}",
+  "author": {
+    "@type": "Person",
+    "name": "Shota Fujie",
+    "alternateName": "ふじえもん",
+    "url": "https://fujiemon.dev"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Shota Fujie",
+    "url": "https://fujiemon.dev"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://fujiemon.dev{{ page.url }}"
+  },
+  "image": "https://fujiemon.dev/image/fujiemon.png",
+  "inLanguage": "{{ page.lang | default: 'ja' }}"{% if page.tags.size > 0 %},
+  "keywords": {{ page.tags | join: ', ' | jsonify }}{% endif %}
+}
+</script>

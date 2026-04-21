@@ -7,4 +7,4 @@ fujiemon's development work / research report / presentation / hobbies
 - favorite books, sake, music
 
 ---
-Updated:2026-01-07
+Updated:2026-04-21
