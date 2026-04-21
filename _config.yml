@@ -11,6 +11,9 @@ defaults:
     values:
       layout: blog-post
 
+plugins:
+  - jekyll-sitemap
+
 exclude:
   - README.md
   - Gemfile

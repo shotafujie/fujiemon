@@ -1,0 +1,50 @@
+# robots.txt for https://fujiemon.dev
+# 公開サイトなので基本 allow. AI クローラも明示的に許可する。
+
+User-agent: *
+Allow: /
+Disallow: /_drafts/
+
+# --- AI クローラ（明示的に許可） ---
+
+# OpenAI
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Anthropic
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Google (Gemini / Vertex AI の学習用クローラ)
+User-agent: Google-Extended
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+# Common Crawl
+User-agent: CCBot
+Allow: /
+
+# Apple
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta
+User-agent: Meta-ExternalAgent
+Allow: /
+
+Sitemap: https://fujiemon.dev/sitemap.xml

@@ -504,7 +504,7 @@ const translations = {
     },
     // Footer
     footer: {
-      copyright: "© 2025 fujiemon"
+      copyright: "© 2026 fujiemon"
     }
   }
 };
