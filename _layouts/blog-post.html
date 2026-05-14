@@ -3,8 +3,8 @@
 <head>
   {% include blog-head.html %}
 </head>
-<body>
-  <div class="bg-room"></div>
+<body class="{% if page.theme == 'terminal' %}terminal-theme{% endif %}"{% if page.theme == 'terminal' %} data-theme="terminal"{% endif %}>
+  {% unless page.theme == 'terminal' %}<div class="bg-room"></div>{% endunless %}
 
   {% include blog-nav.html %}
 
@@ -23,7 +23,14 @@
           </div>
           {% endif %}
         </div>
+        {% if page.theme == 'terminal' %}
+        <h1 class="blog-title term-title">
+          <span class="term-prompt">$</span>
+          <span class="term-cmd" id="termTitle" data-text="./{{ page.slug | default: page.title }}">./{{ page.slug | default: page.title }}</span><span class="term-caret" aria-hidden="true">&#9608;</span>
+        </h1>
+        {% else %}
         <h1 class="blog-title">{{ page.title }}</h1>
+        {% endif %}
       </header>
 
       <div class="blog-toolbar">
