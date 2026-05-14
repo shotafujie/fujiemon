@@ -1,6 +1,40 @@
 /* ===========================================
+   Blog — ==text== をマーカー風ハイライトに変換
+   Markdownレンダリング後のテキストノードを走査して <mark> 化
+   =========================================== */
+(function () {
+  const root = document.getElementById('blogContent');
+  if (!root) return;
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+    acceptNode(node) {
+      if (node.parentElement.closest('code, pre')) return NodeFilter.FILTER_REJECT;
+      return /==.+?==/.test(node.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+    }
+  });
+  const targets = [];
+  let n;
+  while ((n = walker.nextNode())) targets.push(n);
+
+  targets.forEach(node => {
+    const parts = node.nodeValue.split(/(==.+?==)/g);
+    const frag = document.createDocumentFragment();
+    parts.forEach(part => {
+      const m = part.match(/^==(.+?)==$/);
+      if (m) {
+        const mark = document.createElement('mark');
+        mark.textContent = m[1];
+        frag.appendChild(mark);
+      } else if (part) {
+        frag.appendChild(document.createTextNode(part));
+      }
+    });
+    node.parentNode.replaceChild(frag, node);
+  });
+})();
+
+/* ===========================================
    Blog — スライド表示切替
-   h2 見出しを区切りとしてスライド風に表示
+   h2 / h3 見出しを区切りとしてスライド風に表示
    =========================================== */
 
 (function () {
@@ -13,14 +47,14 @@
   let currentSlide = 0;
   let originalHTML = '';
 
-  // h2 で区切ってスライドに分割
+  // h2 / h3 で区切ってスライドに分割
   function buildSlides() {
     const children = Array.from(content.children);
     const sections = [];
     let current = [];
 
     children.forEach(el => {
-      if (el.tagName === 'H2') {
+      if (el.tagName === 'H2' || el.tagName === 'H3') {
         if (current.length > 0) {
           sections.push(current);
         }
@@ -139,4 +173,29 @@
     if (slideMode) exitSlideMode();
     else enterSlideMode();
   });
+})();
+
+/* ===========================================
+   Terminal Theme — タイトルのタイピングアニメ
+   =========================================== */
+(function () {
+  if (document.body.dataset.theme !== 'terminal') return;
+  const target = document.getElementById('termTitle');
+  if (!target) return;
+
+  const text = target.dataset.text || target.textContent;
+  const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) return;
+
+  target.textContent = '';
+  let i = 0;
+  const speed = 55;
+  const startDelay = 250;
+
+  setTimeout(function tick() {
+    if (i >= text.length) return;
+    target.textContent += text.charAt(i);
+    i += 1;
+    setTimeout(tick, speed);
+  }, startDelay);
 })();

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Highlight Preview — アプローチ別比較</title>
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  body {
+    font-family: 'BIZ UDPGothic', system-ui, sans-serif;
+    margin: 0;
+    background: #0e0e14;
+    color: #f0f0f8;
+    line-height: 1.7;
+  }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 32px 24px 80px; }
+  .lead { color: #9898a8; font-size: 0.9rem; margin-bottom: 32px; }
+  h1 { font-size: 1.4rem; margin: 0 0 8px; }
+  h2 {
+    font-size: 1.1rem;
+    margin: 48px 0 16px;
+    padding-left: 12px;
+    border-left: 4px solid #a09bd8;
+    color: #c4bce8;
+  }
+  .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: #c4bce8;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .label .id {
+    background: rgba(160, 155, 216, 0.2);
+    color: #c4bce8;
+    padding: 1px 8px;
+    border-radius: 3px;
+    font-weight: 700;
+  }
+  .label .live {
+    background: rgba(109, 224, 240, 0.18);
+    color: #6de0f0;
+    padding: 1px 8px;
+    border-radius: 3px;
+    font-size: 0.7rem;
+  }
+  .label .desc { color: #9898a8; font-family: 'BIZ UDPGothic', sans-serif; }
+
+  /* 藤色テーマ風カード */
+  .fuji-card {
+    background: #14141c;
+    border: 1px solid rgba(160, 155, 216, 0.1);
+    border-radius: 10px;
+    padding: 20px 28px;
+    margin-bottom: 28px;
+  }
+  .fuji-card p { margin: 0; }
+
+  /* terminal風カード */
+  .term-card {
+    background: #000;
+    border: 1px solid rgba(245, 245, 245, 0.18);
+    border-radius: 4px;
+    padding: 20px 28px;
+    margin-bottom: 28px;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    color: #f5f5f5;
+    font-size: 0.95rem;
+  }
+  .term-card p { margin: 0; }
+
+  /* ===== アプローチ別 ===== */
+
+  /* A: 半透明塗り（現状の改良版） */
+  .approach-a mark {
+    background: rgba(255, 215, 110, 0.45);
+    color: inherit;
+    padding: 0 4px;
+    border-radius: 3px;
+  }
+  .approach-a-term mark {
+    background: rgba(255, 215, 110, 0.32);
+    color: #f5f5f5;
+    padding: 0 4px;
+    border-radius: 2px;
+  }
+
+  /* B: 下線グラデ（蛍光ペン風） — 採用案 */
+  .approach-b mark {
+    background: linear-gradient(transparent 55%, rgba(255, 215, 110, 0.55) 55%);
+    color: inherit;
+    padding: 0 2px;
+    font-weight: 600;
+  }
+  .approach-b-term mark {
+    background: linear-gradient(transparent 55%, rgba(255, 215, 110, 0.5) 55%);
+    color: #f5f5f5;
+    padding: 0 2px;
+    font-weight: 700;
+  }
+
+  /* C: ベタ塗り黄＋黒文字（教科書ハイライト） */
+  .approach-c mark {
+    background: #ffe294;
+    color: #1a1a20;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-weight: 600;
+  }
+  .approach-c-term mark {
+    background: #ffd166;
+    color: #000;
+    padding: 1px 6px;
+    border-radius: 2px;
+    font-weight: 700;
+  }
+
+  /* D: 太字＋色変え（背景なし） */
+  .approach-d mark {
+    background: none;
+    color: #ffc857;
+    font-weight: 700;
+  }
+  .approach-d-term mark {
+    background: none;
+    color: #ffd166;
+    font-weight: 700;
+  }
+
+  /* E: 厚い下線（border-bottom） */
+  .approach-e mark {
+    background: none;
+    color: inherit;
+    border-bottom: 4px solid rgba(255, 215, 110, 0.85);
+    padding-bottom: 0;
+    font-weight: 600;
+  }
+  .approach-e-term mark {
+    background: none;
+    color: #f5f5f5;
+    border-bottom: 3px solid #ffd166;
+    padding-bottom: 0;
+    font-weight: 700;
+  }
+
+  .controls {
+    margin-top: 36px;
+    padding: 16px 20px;
+    background: rgba(160, 155, 216, 0.08);
+    border-left: 3px solid #a09bd8;
+    border-radius: 6px;
+    font-size: 0.88rem;
+    color: #c4bce8;
+  }
+  code { font-family: 'JetBrains Mono', monospace; color: #6de0f0; background: rgba(109, 224, 240, 0.08); padding: 1px 5px; border-radius: 3px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Highlight — アプローチ別比較</h1>
+  <p class="lead">
+    α調整だけだと「埋もれる or 派手すぎる」の両極なので、<strong>型の違う5案</strong>を並べました。
+    気に入った段の <code>記号（A〜E）</code> を伝えてもらえれば適用します。
+  </p>
+
+  <!-- ===== 藤色テーマ ===== -->
+  <h2>藤色テーマ</h2>
+
+  <div class="label"><span class="id">A</span><span class="desc">半透明塗り（堅実）</span></div>
+  <div class="fuji-card approach-a">
+    <p>JPHACKS のテーマは <mark>「Live Real. Hack the Future」</mark>。学生は自分でテーマを解釈してプロダクトを作る、いわゆる<mark>自由テーマ型</mark>の典型例。全国439人が参加し、Hack DayとAward Dayの2段階で進む。</p>
+  </div>
+
+  <div class="label"><span class="id">B</span><span class="desc">下線グラデ（蛍光ペン風）</span><span class="live">現在ライブ</span></div>
+  <div class="fuji-card approach-b">
+    <p>JPHACKS のテーマは <mark>「Live Real. Hack the Future」</mark>。学生は自分でテーマを解釈してプロダクトを作る、いわゆる<mark>自由テーマ型</mark>の典型例。全国439人が参加し、Hack DayとAward Dayの2段階で進む。</p>
+  </div>
+
+  <div class="label"><span class="id">C</span><span class="desc">ベタ塗り黄＋黒文字（教科書スタイル）</span></div>
+  <div class="fuji-card approach-c">
+    <p>JPHACKS のテーマは <mark>「Live Real. Hack the Future」</mark>。学生は自分でテーマを解釈してプロダクトを作る、いわゆる<mark>自由テーマ型</mark>の典型例。全国439人が参加し、Hack DayとAward Dayの2段階で進む。</p>
+  </div>
+
+  <div class="label"><span class="id">D</span><span class="desc">太字＋色変え（背景なし）</span></div>
+  <div class="fuji-card approach-d">
+    <p>JPHACKS のテーマは <mark>「Live Real. Hack the Future」</mark>。学生は自分でテーマを解釈してプロダクトを作る、いわゆる<mark>自由テーマ型</mark>の典型例。全国439人が参加し、Hack DayとAward Dayの2段階で進む。</p>
+  </div>
+
+  <div class="label"><span class="id">E</span><span class="desc">厚い下線</span></div>
+  <div class="fuji-card approach-e">
+    <p>JPHACKS のテーマは <mark>「Live Real. Hack the Future」</mark>。学生は自分でテーマを解釈してプロダクトを作る、いわゆる<mark>自由テーマ型</mark>の典型例。全国439人が参加し、Hack DayとAward Dayの2段階で進む。</p>
+  </div>
+
+  <!-- ===== terminal テーマ ===== -->
+  <h2>terminal テーマ</h2>
+
+  <div class="label"><span class="id">A</span><span class="desc">半透明塗り</span></div>
+  <div class="term-card approach-a-term">
+    <p>$ ./hello — 黒背景に <mark>マーカーで重要部分を強調</mark> したときの読みやすさを確認します。コードや <mark>キーワード</mark> が等幅で並んだときの視認性が判断ポイント。</p>
+  </div>
+
+  <div class="label"><span class="id">B</span><span class="desc">下線グラデ（蛍光ペン風）</span><span class="live">現在ライブ</span></div>
+  <div class="term-card approach-b-term">
+    <p>$ ./hello — 黒背景に <mark>マーカーで重要部分を強調</mark> したときの読みやすさを確認します。コードや <mark>キーワード</mark> が等幅で並んだときの視認性が判断ポイント。</p>
+  </div>
+
+  <div class="label"><span class="id">C</span><span class="desc">ベタ塗り黄＋黒文字</span></div>
+  <div class="term-card approach-c-term">
+    <p>$ ./hello — 黒背景に <mark>マーカーで重要部分を強調</mark> したときの読みやすさを確認します。コードや <mark>キーワード</mark> が等幅で並んだときの視認性が判断ポイント。</p>
+  </div>
+
+  <div class="label"><span class="id">D</span><span class="desc">太字＋色変え</span></div>
+  <div class="term-card approach-d-term">
+    <p>$ ./hello — 黒背景に <mark>マーカーで重要部分を強調</mark> したときの読みやすさを確認します。コードや <mark>キーワード</mark> が等幅で並んだときの視認性が判断ポイント。</p>
+  </div>
+
+  <div class="label"><span class="id">E</span><span class="desc">厚い下線</span></div>
+  <div class="term-card approach-e-term">
+    <p>$ ./hello — 黒背景に <mark>マーカーで重要部分を強調</mark> したときの読みやすさを確認します。コードや <mark>キーワード</mark> が等幅で並んだときの視認性が判断ポイント。</p>
+  </div>
+
+  <div class="controls">
+    <strong>使い方</strong>: 気に入った記号を伝えてください（例：「藤色は B、terminal は D で」「両方 E」など）。<br>
+    両テーマで違う案を選んでもOK。微調整（色味・太さ）も指示があれば動かします。
+  </div>
+</div>
+</body>
+</html>
