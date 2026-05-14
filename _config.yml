@@ -1,6 +1,7 @@
 title: ふじえもんのおへや
 description: fujiemon's homepage
 url: https://fujiemon.dev
+timezone: Asia/Tokyo
 
 permalink: /blog/:year/:month/:title/
 
