@@ -1,6 +1,6 @@
 ---
 title: "ハッカソンやりませんか？"
-date: 2026-05-16
+date: 2026-05-15
 tags: ["hackathon", "accessibility", "community"]
 lang: ja
 slug: deaf-hackathon
