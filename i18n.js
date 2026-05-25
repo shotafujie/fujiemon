@@ -106,6 +106,14 @@ const translations = {
     research: {
       title: "Research",
       subtitle: "研究・論文",
+      paper6: {
+        year: "2026",
+        title: "多話者環境における目的音声抽出の有効性と課題―ろう・難聴者の主観評価に基づく分析―",
+        venue: "ヒューマンインタフェース学会論文誌, 28(2), pp. 165-174",
+        description: "ニューラルネットワークによる目的音声抽出がろう・難聴者の聴取努力に与える効果を，序数ロジスティック混合モデルで定量的に分析．効果は低～中SNRで最も顕著だった．",
+        link: "Paper",
+        tags: ["共著", "論文誌"]
+      },
       paper5: {
         year: "2025",
         title: "Empirical Study on Listening Effort of Deaf and Hard-of-Hearing for Enhanced Speech in Multispeaker Environments",
@@ -358,6 +366,14 @@ const translations = {
     research: {
       title: "Research",
       subtitle: "Research & Publications",
+      paper6: {
+        year: "2026",
+        title: "Effectiveness and Challenges of Target-Speech Extraction in Multispeaker Environments: A Subjective Evaluation by Deaf and Hard-of-Hearing Participants",
+        venue: "Journal of Human Interface Society, 28(2), pp. 165-174",
+        description: "Quantified how neural network-based target-speech extraction affects listening effort for deaf/hard-of-hearing participants, using ordinal logistic mixed models and hierarchical Bayesian extensions. Benefits were most pronounced at low-to-mid SNRs.",
+        link: "Paper",
+        tags: ["Co-author", "Journal"]
+      },
       paper5: {
         year: "2025",
         title: "Empirical Study on Listening Effort of Deaf and Hard-of-Hearing for Enhanced Speech in Multispeaker Environments",
