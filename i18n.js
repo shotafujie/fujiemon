@@ -109,7 +109,7 @@ const translations = {
       paper6: {
         year: "2026",
         title: "多話者環境における目的音声抽出の有効性と課題―ろう・難聴者の主観評価に基づく分析―",
-        venue: "ヒューマンインタフェース学会論文誌, 28(2), pp. 165-174",
+        venue: "ヒューマンインタフェース学会論文誌, 28(2), pp. 165-174 / DOI: 10.11184/his.28.2_165",
         description: "ニューラルネットワークによる目的音声抽出がろう・難聴者の聴取努力に与える効果を，序数ロジスティック混合モデルで定量的に分析．効果は低～中SNRで最も顕著だった．",
         link: "Paper",
         tags: ["共著", "論文誌"]
@@ -117,7 +117,7 @@ const translations = {
       paper5: {
         year: "2025",
         title: "Empirical Study on Listening Effort of Deaf and Hard-of-Hearing for Enhanced Speech in Multispeaker Environments",
-        venue: "HCI International 2025 Posters, CCIS vol. 2524, Springer",
+        venue: "HCI International 2025 Posters, CCIS vol. 2524, Springer / DOI: 10.1007/978-3-031-94156-6_11",
         description: "多話者環境における音声強調技術で抽出した発話の聴取努力を，ろう・難聴者を対象に主観評価で検証．",
         link: "Paper",
         tags: ["共著", "ポスター"]
@@ -141,7 +141,7 @@ const translations = {
       paper3: {
         year: "2024",
         title: "伝音性難聴のある成人による軟骨伝導型振動子の装着位置の検討",
-        venue: "音声コミュニケーション研究会資料, 4(1)",
+        venue: "音声コミュニケーション研究会資料, 4(1) / DOI: 10.60274/asjsc.SC-2024-10",
         description: "頭部固定位置による純音聴力レベルと文章了解度の変化を検討．",
         link: "Paper",
         tags: ["共著", "オーラル"]
@@ -369,7 +369,7 @@ const translations = {
       paper6: {
         year: "2026",
         title: "Effectiveness and Challenges of Target-Speech Extraction in Multispeaker Environments: A Subjective Evaluation by Deaf and Hard-of-Hearing Participants",
-        venue: "Journal of Human Interface Society, 28(2), pp. 165-174",
+        venue: "Journal of Human Interface Society, 28(2), pp. 165-174 / DOI: 10.11184/his.28.2_165",
         description: "Quantified how neural network-based target-speech extraction affects listening effort for deaf/hard-of-hearing participants, using ordinal logistic mixed models and hierarchical Bayesian extensions. Benefits were most pronounced at low-to-mid SNRs.",
         link: "Paper",
         tags: ["Co-author", "Journal"]
@@ -377,7 +377,7 @@ const translations = {
       paper5: {
         year: "2025",
         title: "Empirical Study on Listening Effort of Deaf and Hard-of-Hearing for Enhanced Speech in Multispeaker Environments",
-        venue: "HCI International 2025 Posters, CCIS vol. 2524, Springer",
+        venue: "HCI International 2025 Posters, CCIS vol. 2524, Springer / DOI: 10.1007/978-3-031-94156-6_11",
         description: "Empirically evaluated listening effort of deaf/hard-of-hearing individuals for enhanced speech in multispeaker environments. Subjective evaluation showed reduced listening effort for extracted target speech under low SNR conditions.",
         link: "Paper",
         tags: ["Co-author", "Poster"]
@@ -401,7 +401,7 @@ const translations = {
       paper3: {
         year: "2024",
         title: "Study on Attachment Position of Cartilage Conduction Transducer by Adults with Conductive Hearing Loss",
-        venue: "Proceedings of the Speech Communication Research Group, 4(1)",
+        venue: "Proceedings of the Speech Communication Research Group, 4(1) / DOI: 10.60274/asjsc.SC-2024-10",
         description: "Evaluated cartilage conduction transducer placement on a participant with conductive hearing loss. The mastoid region yielded the best pure-tone thresholds and subjective clarity among tested positions.",
         link: "Paper",
         tags: ["Co-author", "Oral"]
