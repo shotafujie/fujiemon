@@ -1,6 +1,6 @@
 ---
 title: "Releaseを書かせながらSkillにした"
-date: 2026-07-05
+date: 2026-07-04
 tags: ["claude", "skill", "release", "workflow"]
 lang: ja
 slug: release-skill
