@@ -1,0 +1,86 @@
+{% capture share_url %}https://fujiemon.dev{{ page.url }}{% endcapture %}
+<div class="blog-share">
+  <span class="blog-share-label">この記事をシェア</span>
+  <div class="blog-share-buttons">
+    <a class="blog-share-btn blog-share-x"
+       href="https://x.com/intent/post?text={{ page.title | url_encode }}&url={{ share_url | url_encode }}"
+       target="_blank" rel="noopener noreferrer" aria-label="Xでポストする">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+      </svg>
+      <span>ポスト</span>
+    </a>
+    <button class="blog-share-btn blog-share-copy" id="shareCopyBtn"
+            data-share-text="{{ page.title }}&#10;{{ share_url }}"
+            aria-label="タイトルとリンクをコピー">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <rect x="9" y="9" width="11" height="11" rx="2"/>
+        <path d="M5 15V5a2 2 0 0 1 2-2h10"/>
+      </svg>
+      <span class="blog-share-copy-label">タイトルとリンクをコピー</span>
+    </button>
+  </div>
+</div>
+<style>
+  .blog-share {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(128, 128, 128, 0.25);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .blog-share-label {
+    font-size: 0.85rem;
+    opacity: 0.7;
+  }
+  .blog-share-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .blog-share-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid rgba(128, 128, 128, 0.4);
+    border-radius: 999px;
+    background: transparent;
+    color: inherit;
+    font-size: 0.85rem;
+    font-family: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .blog-share-btn:hover {
+    background: rgba(128, 128, 128, 0.15);
+  }
+  .blog-share-copy.copied {
+    border-color: #4caf50;
+    color: #4caf50;
+  }
+</style>
+<script>
+  (() => {
+    const btn = document.getElementById('shareCopyBtn');
+    if (!btn) return;
+    btn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(btn.dataset.shareText);
+        const label = btn.querySelector('.blog-share-copy-label');
+        const original = label.textContent;
+        label.textContent = 'コピーしました！';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          label.textContent = original;
+          btn.classList.remove('copied');
+        }, 2000);
+      } catch (e) {
+        console.error('copy failed', e);
+      }
+    });
+  })();
+</script>
