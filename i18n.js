@@ -104,7 +104,7 @@ const translations = {
       nijiiroSlime: {
         name: "にじいろスライム",
         tag: "Game",
-        description: "同じスライムをくっつけて色を育てる合体パズル．2048で「にじいろスライム」，4096で「やみスライム」が生まれます．",
+        description: "同じスライムをくっつけて色を育てる合体パズル．2048で「にじいろスライム」が生まれます．",
         tech: ["JavaScript", "Canvas", "ブラウザ"],
         link: "あそぶ →"
       }
@@ -371,7 +371,7 @@ const translations = {
       nijiiroSlime: {
         name: "Nijiiro Slime",
         tag: "Game",
-        description: "A merge puzzle where matching slimes fuse and grow more colorful. Reach 2048 for the rainbow slime, 4096 for the dark slime.",
+        description: "A merge puzzle where matching slimes fuse and grow more colorful. Reach 2048 for the rainbow slime.",
         tech: ["JavaScript", "Canvas", "Browser"],
         link: "Play →"
       }
