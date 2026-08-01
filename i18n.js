@@ -100,6 +100,13 @@ const translations = {
         description: "音源の周波数成分を可視光スペクトルの色で描画．",
         tech: ["JavaScript", "WebAudio"],
         link: "GitHub →"
+      },
+      nijiiroSlime: {
+        name: "にじいろスライム",
+        tag: "Game",
+        description: "同じスライムをくっつけて色を育てる合体パズル．2048で「にじいろスライム」，4096で「やみスライム」が生まれます．",
+        tech: ["JavaScript", "Canvas", "ブラウザ"],
+        link: "あそぶ →"
       }
     },
     // Researchセクション
@@ -360,6 +367,13 @@ const translations = {
         description: "Visualize audio frequency components as visible light spectrum colors.",
         tech: ["JavaScript", "WebAudio"],
         link: "GitHub →"
+      },
+      nijiiroSlime: {
+        name: "Nijiiro Slime",
+        tag: "Game",
+        description: "A merge puzzle where matching slimes fuse and grow more colorful. Reach 2048 for the rainbow slime, 4096 for the dark slime.",
+        tech: ["JavaScript", "Canvas", "Browser"],
+        link: "Play →"
       }
     },
     // Research section
