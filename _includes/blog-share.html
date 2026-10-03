@@ -3,7 +3,7 @@
   <span class="blog-share-label">この記事をシェア</span>
   <div class="blog-share-buttons">
     <a class="blog-share-btn blog-share-x"
-       href="https://x.com/intent/post?text={{ page.title | url_encode }}&url={{ share_url | url_encode }}"
+       href="https://x.com/intent/post?text={{ page.title | url_encode | escape }}&amp;url={{ share_url | url_encode | escape }}"
        target="_blank" rel="noopener noreferrer" aria-label="Xでポストする">
       <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
@@ -11,7 +11,7 @@
       <span>ポスト</span>
     </a>
     <button class="blog-share-btn blog-share-copy" id="shareCopyBtn"
-            data-share-text="{{ page.title }}&#10;{{ share_url }}"
+            data-share-text="{{ page.title | escape }}&#10;{{ share_url | escape }}"
             aria-label="タイトルとリンクをコピー">
       <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
         <rect x="9" y="9" width="11" height="11" rx="2"/>
