@@ -1,7 +1,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{ page.title }} | ふじえもんのおへや</title>
-<meta name="description" content="{{ page.excerpt | strip_html | truncate: 160 }}">
+<title>{{ page.title | escape }} | ふじえもんのおへや</title>
+<meta name="description" content="{{ page.excerpt | strip_html | truncate: 160 | escape }}">
 <meta name="author" content="ふじえもん">
 <link rel="icon" href="/favicon-32.ico" type="image/x-icon">
 <link rel="apple-touch-icon" href="/image/fujiemon.png">
@@ -11,32 +11,33 @@
 {% if page.theme == 'terminal' %}<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">{% endif %}
 
 <!-- OGP -->
-<meta property="og:title" content="{{ page.title }}">
-<meta property="og:description" content="{{ page.excerpt | strip_html | truncate: 160 }}">
+<meta property="og:title" content="{{ page.title | escape }}">
+<meta property="og:description" content="{{ page.excerpt | strip_html | truncate: 160 | escape }}">
 <meta property="og:image" content="https://fujiemon.dev/image/fujiemon.png">
-<meta property="og:url" content="https://fujiemon.dev{{ page.url }}">
+<meta property="og:url" content="https://fujiemon.dev{{ page.url | escape }}">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="ふじえもんのおへや">
 <meta property="og:locale" content="ja_JP">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@fujiengineer">
 <meta name="twitter:creator" content="@fujiengineer">
-<meta name="twitter:title" content="{{ page.title }}">
-<meta name="twitter:description" content="{{ page.excerpt | strip_html | truncate: 160 }}">
+<meta name="twitter:title" content="{{ page.title | escape }}">
+<meta name="twitter:description" content="{{ page.excerpt | strip_html | truncate: 160 | escape }}">
 <meta name="twitter:image" content="https://fujiemon.dev/image/fujiemon.png">
 
 <link rel="stylesheet" href="/style.css">
 <link rel="stylesheet" href="/css/blog.css">
 
 <!-- JSON-LD: BlogPosting -->
+{% comment %}JSON strings also escape '<' to keep them inside the script element.{% endcomment %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": {{ page.title | jsonify }},
-  "description": {{ page.excerpt | strip_html | truncate: 160 | jsonify }},
-  "datePublished": "{{ page.date | date_to_xmlschema }}",
-  "dateModified": "{{ page.date | date_to_xmlschema }}",
+  "headline": {{ page.title | jsonify | replace: '<', '\u003c' }},
+  "description": {{ page.excerpt | strip_html | truncate: 160 | jsonify | replace: '<', '\u003c' }},
+  "datePublished": {{ page.date | date_to_xmlschema | jsonify | replace: '<', '\u003c' }},
+  "dateModified": {{ page.date | date_to_xmlschema | jsonify | replace: '<', '\u003c' }},
   "author": {
     "@type": "Person",
     "name": "Shota Fujie",
@@ -50,10 +51,10 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://fujiemon.dev{{ page.url }}"
+    "@id": {{ page.url | prepend: 'https://fujiemon.dev' | jsonify | replace: '<', '\u003c' }}
   },
   "image": "https://fujiemon.dev/image/fujiemon.png",
-  "inLanguage": "{{ page.lang | default: 'ja' }}"{% if page.tags.size > 0 %},
-  "keywords": {{ page.tags | join: ', ' | jsonify }}{% endif %}
+  "inLanguage": {{ page.lang | default: 'ja' | jsonify | replace: '<', '\u003c' }}{% if page.tags.size > 0 %},
+  "keywords": {{ page.tags | join: ', ' | jsonify | replace: '<', '\u003c' }}{% endif %}
 }
 </script>

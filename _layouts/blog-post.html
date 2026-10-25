@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: 'ja' }}">
+<html lang="{{ page.lang | default: 'ja' | escape }}">
 <head>
   {% include blog-head.html %}
 </head>
@@ -18,7 +18,7 @@
           {% if page.tags.size > 0 %}
           <div class="blog-tags">
             {% for tag in page.tags %}
-            <span class="blog-tag">{{ tag }}</span>
+            <span class="blog-tag">{{ tag | escape }}</span>
             {% endfor %}
           </div>
           {% endif %}
@@ -26,10 +26,10 @@
         {% if page.theme == 'terminal' %}
         <h1 class="blog-title term-title">
           <span class="term-prompt">$</span>
-          <span class="term-cmd" id="termTitle" data-text="./{{ page.slug | default: page.title }}">./{{ page.slug | default: page.title }}</span><span class="term-caret" aria-hidden="true">&#9608;</span>
+          <span class="term-cmd" id="termTitle" data-text="./{{ page.slug | default: page.title | escape }}">./{{ page.slug | default: page.title | escape }}</span><span class="term-caret" aria-hidden="true">&#9608;</span>
         </h1>
         {% else %}
-        <h1 class="blog-title">{{ page.title }}</h1>
+        <h1 class="blog-title">{{ page.title | escape }}</h1>
         {% endif %}
       </header>
 
