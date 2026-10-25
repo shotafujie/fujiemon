@@ -1286,3 +1286,395 @@ a {
     grid-template-columns: 1fr;
   }
 }
+
+/* ===== Focused content refresh ===== */
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 1100;
+  padding: 12px 18px;
+  background: var(--text-primary);
+  color: var(--bg-room);
+  border-radius: 4px;
+  transform: translateY(-180%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+:where(a, button, [tabindex]):focus-visible {
+  outline: 3px solid var(--fuji-300);
+  outline-offset: 5px;
+}
+
+.nav-link,
+.mobile-link,
+.lang-toggle,
+.nav-toggle {
+  min-height: 44px;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-toggle {
+  min-width: 44px;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-content {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.waveform {
+  max-width: 100%;
+}
+
+.hero-links {
+  flex-wrap: wrap;
+}
+
+.apps-section,
+.research-section,
+.talks-section {
+  background: none;
+}
+
+.metal-rack,
+.rack-frame,
+.steel-shelf,
+.cork-board {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.featured-apps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-lg);
+}
+
+.featured-app {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-lg);
+  border: 1px solid rgba(160, 155, 216, 0.26);
+  border-radius: 6px;
+  background: var(--bg-card);
+  overflow-wrap: anywhere;
+}
+
+.featured-app-text {
+  align-self: start;
+}
+
+.featured-app-head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.featured-app-preview {
+  display: flex;
+  flex-direction: column;
+  margin: calc(-1 * var(--space-lg)) calc(-1 * var(--space-lg)) var(--space-lg);
+  color: var(--fuji-300);
+  background: #101116;
+  border-bottom: 1px solid rgba(160, 155, 216, 0.26);
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+}
+
+.featured-app-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: contain;
+}
+
+.preview-portrait img {
+  object-fit: cover;
+  object-position: center top;
+}
+
+.preview-wide img {
+  padding: 16px;
+}
+
+.preview-caption {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 16px;
+  border-top: 1px solid rgba(160, 155, 216, 0.12);
+  font-size: 0.875rem;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.featured-app-preview:hover .preview-caption {
+  color: var(--text-primary);
+}
+
+.featured-app-kind {
+  color: var(--fuji-300);
+  font-size: 0.875rem;
+  margin-bottom: 4px;
+}
+
+.featured-app .app-name {
+  font-size: 1.375rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.featured-app-description,
+.featured-app-note {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: #ccc9d6;
+  margin-bottom: var(--space-md);
+}
+
+.featured-app-note {
+  color: #b5b0c5;
+}
+
+.featured-app .card-tech {
+  gap: 6px;
+  margin: 0 0 var(--space-md);
+}
+
+.featured-app .card-tech span {
+  padding: 3px 8px;
+  color: #ccc9d6;
+  background: rgba(160, 155, 216, 0.1);
+  font-size: 0.8125rem;
+}
+
+.featured-app-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--space-lg);
+  margin-top: auto;
+}
+
+.featured-app .card-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--fuji-300);
+  font-size: 1rem;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+
+.featured-app .card-link:hover {
+  color: var(--text-primary);
+}
+
+.research-grid {
+  gap: var(--space-lg);
+}
+
+.research-item,
+.research-item:hover {
+  border: 1px solid #d8d4e3;
+  border-left: 4px solid var(--fuji-500);
+  box-shadow: none;
+  transform: none;
+  transition: none;
+}
+
+.research-title {
+  font-size: 1.1875rem;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.research-venue,
+.research-desc {
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.research-year {
+  font-size: 0.875rem;
+}
+
+.research-tags {
+  flex-wrap: wrap;
+}
+
+.research-tags span {
+  font-size: 0.8125rem;
+}
+
+.research-tags span:first-child {
+  color: #176879;
+}
+
+.research-links {
+  flex-wrap: wrap;
+  gap: var(--space-sm) var(--space-md);
+}
+
+.research-links a,
+.talk-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 1rem;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.research-item a:focus-visible,
+.talk-card a:focus-visible {
+  outline-color: #514680;
+}
+
+.awards-summary {
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-xl);
+  border-top: 1px solid rgba(160, 155, 216, 0.25);
+}
+
+.awards-summary h3 {
+  margin-bottom: var(--space-md);
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.awards-summary ul {
+  list-style: none;
+}
+
+.awards-summary li {
+  display: grid;
+  grid-template-columns: 4.5rem minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: var(--space-sm) var(--space-lg);
+  padding: 12px 0;
+  font-size: 1rem;
+  line-height: 1.7;
+  border-bottom: 1px solid rgba(160, 155, 216, 0.12);
+  overflow-wrap: anywhere;
+}
+
+.awards-summary time {
+  color: var(--fuji-300);
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+}
+
+.awards-summary strong {
+  font-weight: 500;
+}
+
+.awards-summary li > span {
+  color: #b5b0c5;
+  font-size: 0.875rem;
+}
+
+.talks-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-lg);
+}
+
+.talk-card,
+.talk-card:nth-child(n),
+.talk-card:hover {
+  min-width: 0;
+  border: 1px solid #d8d4e3;
+  border-radius: 2px;
+  box-shadow: none;
+  transform: none;
+  transition: none;
+  overflow-wrap: anywhere;
+}
+
+.talk-card .pin {
+  display: none;
+}
+
+.talk-date {
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.talk-title {
+  line-height: 1.7;
+}
+
+.talk-desc {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #50505b;
+}
+
+.footer,
+.scroll-hint {
+  color: var(--text-secondary);
+}
+
+@media (max-width: 900px) {
+  .featured-apps {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .mobile-menu {
+    top: 76px;
+  }
+
+  .hero-links {
+    gap: 12px;
+  }
+
+  .featured-app,
+  .research-item,
+  .talk-card {
+    padding: var(--space-lg);
+  }
+
+  .talks-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .awards-summary li {
+    grid-template-columns: 3.5rem minmax(0, 1fr);
+    column-gap: var(--space-md);
+  }
+
+  .awards-summary li > span {
+    grid-column: 2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

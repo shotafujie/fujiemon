@@ -33,10 +33,11 @@
   <meta name="twitter:description" content="ふじえもんのホームページです．成果物や登壇資料を掲載しています．">
   <meta name="twitter:image" content="https://fujiemon.dev/image/fujiemon.png">
 
-  <link rel="stylesheet" href="style.css?v=2.1.3">
+  <link rel="stylesheet" href="style.css?v=cleanup-4">
 </head>
 
 <body>
+  <a class="skip-link" href="#main" data-i18n="nav.skip">本文へ</a>
   <!-- 背景 -->
   <div class="bg-room"></div>
 
@@ -48,35 +49,36 @@
         <span class="logo-text">fujiemon</span>
       </a>
       <div class="nav-links">
-        <a href="/blog/" class="nav-link" data-i18n="nav.blog"></a>
+        <a href="https://fujiemon.dev/blog/" class="nav-link" data-i18n="nav.blog"></a>
         <a href="#apps" class="nav-link" data-i18n="nav.apps"></a>
         <a href="#research" class="nav-link" data-i18n="nav.research"></a>
-        <a href="#awards" class="nav-link" data-i18n="nav.awards"></a>
+
         <a href="#talks" class="nav-link" data-i18n="nav.talks"></a>
-        <a href="#shelf" class="nav-link" data-i18n="nav.shelf"></a>
+
       </div>
       <button class="lang-toggle" id="langToggle" aria-label="Language Toggle">EN</button>
-      <button class="nav-toggle" id="navToggle" aria-label="メニュー" data-i18n-aria="nav.menu">
+      <button class="nav-toggle" id="navToggle" aria-controls="mobileMenu" aria-expanded="false" aria-label="メニュー" data-i18n-aria="nav.menu">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
   <!-- モバイルメニュー -->
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="/blog/" class="mobile-link" data-i18n="nav.blog"></a>
+  <div class="mobile-menu" id="mobileMenu" inert>
+    <a href="https://fujiemon.dev/blog/" class="mobile-link" data-i18n="nav.blog"></a>
     <a href="#apps" class="mobile-link" data-i18n="nav.apps"></a>
     <a href="#research" class="mobile-link" data-i18n="nav.research"></a>
-    <a href="#awards" class="mobile-link" data-i18n="nav.awards"></a>
+
     <a href="#talks" class="mobile-link" data-i18n="nav.talks"></a>
-    <a href="#shelf" class="mobile-link" data-i18n="nav.shelf"></a>
+
   </div>
 
+  <main id="main" tabindex="-1">
   <!-- ===== HERO ===== -->
   <section class="hero" id="hero">
     <div class="hero-content">
       <!-- 波形 -->
-      <div class="waveform" id="waveform"></div>
+      <div class="waveform" id="waveform" aria-hidden="true"></div>
 
       <!-- プロフィール -->
       <div class="hero-profile">
@@ -120,199 +122,60 @@
     </div>
   </section>
 
-  <!-- ===== APPS - メタルラック風 ===== -->
+  <!-- ===== APPS ===== -->
   <section class="section apps-section" id="apps">
     <div class="container">
       <div class="section-header">
         <h2 class="section-title" data-i18n="apps.title"></h2>
         <p class="section-subtitle" data-i18n="apps.subtitle"></p>
       </div>
-
-      <div class="metal-rack">
-        <div class="rack-frame">
-          <div class="apps-grid">
-            <!-- asrivia -->
-            <div class="app-card" data-flipped="false">
-              <div class="card-inner">
-                <div class="card-front">
-                  <span class="app-icon">🎙️</span>
-                  <h3 class="app-name" data-i18n="apps.asrivia.name"></h3>
-                  <span class="app-tag" data-i18n="apps.asrivia.tag"></span>
-                </div>
-                <div class="card-back">
-                  <h3 data-i18n="apps.asrivia.name"></h3>
-                  <p data-i18n="apps.asrivia.description"></p>
-                  <div class="card-tech" data-i18n-list="apps.asrivia.tech"></div>
-                  <a href="https://github.com/shotafujie/asrivia" target="_blank" class="card-link"
-                    data-i18n="apps.asrivia.link"></a>
-                </div>
-              </div>
+      <div class="featured-apps">
+        <article class="featured-app">
+          <a class="featured-app-preview preview-portrait" href="image/apps/timeline-sample.jpg" target="_blank" rel="noopener">
+            <img src="image/apps/timeline-sample.jpg" alt="" data-i18n-alt="apps.timeline.imageAlt" width="390" height="960" loading="lazy">
+            <span class="preview-caption" data-i18n="apps.timeline.imageLabel"></span>
+          </a>
+          <header class="featured-app-head">
+            <div>
+              <p class="featured-app-kind" data-i18n="apps.timeline.tag"></p>
+              <h3 class="app-name" data-i18n="apps.timeline.name"></h3>
             </div>
+          </header>
+          <p class="featured-app-description" data-i18n="apps.timeline.description"></p>
+          <div class="card-tech" data-i18n-list="apps.timeline.tech"></div>
+        </article>
 
-            <!-- asrlance -->
-            <div class="app-card" data-flipped="false">
-              <div class="card-inner">
-                <div class="card-front">
-                  <span class="app-icon">📊</span>
-                  <h3 class="app-name" data-i18n="apps.asrlance.name"></h3>
-                  <span class="app-tag" data-i18n="apps.asrlance.tag"></span>
-                </div>
-                <div class="card-back">
-                  <h3 data-i18n="apps.asrlance.name"></h3>
-                  <p data-i18n="apps.asrlance.description"></p>
-                  <div class="card-tech" data-i18n-list="apps.asrlance.tech"></div>
-                  <a href="https://github.com/shotafujie/asrlance" target="_blank" class="card-link"
-                    data-i18n="apps.asrlance.link"></a>
-                </div>
-              </div>
+        <article class="featured-app">
+          <a class="featured-app-preview preview-wide" href="image/apps/asrivia-window.png" target="_blank" rel="noopener">
+            <img src="image/apps/asrivia-window.png" alt="" data-i18n-alt="apps.asrivia.imageAlt" width="1002" height="304" loading="lazy">
+            <span class="preview-caption" data-i18n="apps.asrivia.imageLabel"></span>
+          </a>
+          <header class="featured-app-head">
+            <div>
+              <p class="featured-app-kind" data-i18n="apps.asrivia.tag"></p>
+              <h3 class="app-name" data-i18n="apps.asrivia.name"></h3>
             </div>
-
-            <!-- entaku -->
-            <div class="app-card" data-flipped="false">
-              <div class="card-inner">
-                <div class="card-front">
-                  <span class="app-icon">🤖</span>
-                  <h3 class="app-name" data-i18n="apps.entaku.name"></h3>
-                  <span class="app-tag" data-i18n="apps.entaku.tag"></span>
-                </div>
-                <div class="card-back">
-                  <h3 data-i18n="apps.entaku.name"></h3>
-                  <p data-i18n="apps.entaku.description"></p>
-                  <div class="card-tech" data-i18n-list="apps.entaku.tech"></div>
-                  <a href="https://github.com/shotafujie/entaku" target="_blank" class="card-link"
-                    data-i18n="apps.entaku.link"></a>
-                </div>
-              </div>
-            </div>
-
-            <!-- PinnedDiscordBot -->
-            <div class="app-card" data-flipped="false">
-              <div class="card-inner">
-                <div class="card-front">
-                  <span class="app-icon">📌</span>
-                  <h3 class="app-name" data-i18n="apps.pinnedBot.name"></h3>
-                  <span class="app-tag" data-i18n="apps.pinnedBot.tag"></span>
-                </div>
-                <div class="card-back">
-                  <h3 data-i18n="apps.pinnedBot.fullName"></h3>
-                  <p data-i18n="apps.pinnedBot.description"></p>
-                  <div class="card-tech" data-i18n-list="apps.pinnedBot.tech"></div>
-                  <a href="https://github.com/shotafujie/PinnedDiscordBot" target="_blank" class="card-link"
-                    data-i18n="apps.pinnedBot.link"></a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Predy -->
-            <div class="app-card" data-flipped="false">
-              <div class="card-inner">
-                <div class="card-front">
-                  <span class="app-icon">✨</span>
-                  <h3 class="app-name" data-i18n="apps.predy.name"></h3>
-                  <span class="app-tag" data-i18n="apps.predy.tag"></span>
-                </div>
-                <div class="card-back">
-                  <h3 data-i18n="apps.predy.name"></h3>
-                  <p data-i18n="apps.predy.description"></p>
-                  <div class="card-tech" data-i18n-list="apps.predy.tech"></div>
-                  <a href="https://github.com/shotafujie/Predy" target="_blank" class="card-link"
-                    data-i18n="apps.predy.link"></a>
-                </div>
-              </div>
-            </div>
-
-            <!-- BookCoverMaker -->
-            <div class="app-card" data-flipped="false">
-              <div class="card-inner">
-                <div class="card-front">
-                  <span class="app-icon">📚</span>
-                  <h3 class="app-name" data-i18n="apps.bookCover.name"></h3>
-                  <span class="app-tag" data-i18n="apps.bookCover.tag"></span>
-                </div>
-                <div class="card-back">
-                  <h3 data-i18n="apps.bookCover.fullName"></h3>
-                  <p data-i18n="apps.bookCover.description"></p>
-                  <div class="card-tech" data-i18n-list="apps.bookCover.tech"></div>
-                  <a href="https://github.com/shotafujie/BookCoverMaker" target="_blank" class="card-link"
-                    data-i18n="apps.bookCover.link"></a>
-                </div>
-              </div>
-            </div>
-
-            <!-- ColorAssist -->
-            <div class="app-card" data-flipped="false">
-              <div class="card-inner">
-                <div class="card-front">
-                  <span class="app-icon">🎨</span>
-                  <h3 class="app-name" data-i18n="apps.colorAssist.name"></h3>
-                  <span class="app-tag" data-i18n="apps.colorAssist.tag"></span>
-                </div>
-                <div class="card-back">
-                  <h3 data-i18n="apps.colorAssist.name"></h3>
-                  <p data-i18n="apps.colorAssist.description"></p>
-                  <div class="card-tech" data-i18n-list="apps.colorAssist.tech"></div>
-                  <a href="https://github.com/shotafujie/ColorAssist" target="_blank" class="card-link"
-                    data-i18n="apps.colorAssist.link"></a>
-                </div>
-              </div>
-            </div>
-
-            <!-- arXiv2Discord -->
-            <div class="app-card" data-flipped="false">
-              <div class="card-inner">
-                <div class="card-front">
-                  <span class="app-icon">📄</span>
-                  <h3 class="app-name" data-i18n="apps.arXiv2Discord.name"></h3>
-                  <span class="app-tag" data-i18n="apps.arXiv2Discord.tag"></span>
-                </div>
-                <div class="card-back">
-                  <h3 data-i18n="apps.arXiv2Discord.name"></h3>
-                  <p data-i18n="apps.arXiv2Discord.description"></p>
-                  <div class="card-tech" data-i18n-list="apps.arXiv2Discord.tech"></div>
-                  <a href="https://github.com/shotafujie/arXiv2Discord" target="_blank" class="card-link"
-                    data-i18n="apps.arXiv2Discord.link"></a>
-                </div>
-              </div>
-            </div>
-
-            <!-- SoundHue -->
-            <div class="app-card" data-flipped="false">
-              <div class="card-inner">
-                <div class="card-front">
-                  <span class="app-icon">🌈</span>
-                  <h3 class="app-name" data-i18n="apps.soundHue.name"></h3>
-                  <span class="app-tag" data-i18n="apps.soundHue.tag"></span>
-                </div>
-                <div class="card-back">
-                  <h3 data-i18n="apps.soundHue.name"></h3>
-                  <p data-i18n="apps.soundHue.description"></p>
-                  <div class="card-tech" data-i18n-list="apps.soundHue.tech"></div>
-                  <a href="https://github.com/shotafujie/SoundHue" target="_blank" class="card-link"
-                    data-i18n="apps.soundHue.link"></a>
-                </div>
-              </div>
-            </div>
-
-            <!-- にじいろスライム -->
-            <div class="app-card" data-flipped="false">
-              <div class="card-inner">
-                <div class="card-front">
-                  <span class="app-icon">🫧</span>
-                  <h3 class="app-name" data-i18n="apps.nijiiroSlime.name"></h3>
-                  <span class="app-tag" data-i18n="apps.nijiiroSlime.tag"></span>
-                </div>
-                <div class="card-back">
-                  <h3 data-i18n="apps.nijiiroSlime.name"></h3>
-                  <p data-i18n="apps.nijiiroSlime.description"></p>
-                  <div class="card-tech" data-i18n-list="apps.nijiiroSlime.tech"></div>
-                  <a href="https://slime.fujiemon.dev/" target="_blank" class="card-link"
-                    data-i18n="apps.nijiiroSlime.link"></a>
-                </div>
-              </div>
-            </div>
-
+          </header>
+          <p class="featured-app-description" data-i18n="apps.asrivia.description"></p>
+          <div class="card-tech" data-i18n-list="apps.asrivia.tech"></div>
+          <div class="featured-app-links">
+            <a href="https://github.com/shotafujie/asrivia" class="card-link" target="_blank" rel="noopener" data-i18n="apps.asrivia.link"></a>
           </div>
-        </div>
+        </article>
+
+        <article class="featured-app featured-app-text">
+          <header class="featured-app-head">
+            <div>
+              <p class="featured-app-kind" data-i18n="apps.asrlance.tag"></p>
+              <h3 class="app-name" data-i18n="apps.asrlance.name"></h3>
+            </div>
+          </header>
+          <p class="featured-app-description" data-i18n="apps.asrlance.description"></p>
+          <div class="card-tech" data-i18n-list="apps.asrlance.tech"></div>
+          <div class="featured-app-links">
+            <a href="https://github.com/shotafujie/asrlance" class="card-link" target="_blank" rel="noopener" data-i18n="apps.asrlance.link"></a>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -398,46 +261,22 @@
           </article>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ===== AWARDS - トロフィーケース風 ===== -->
-  <section class="section awards-section" id="awards">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title" data-i18n="awards.title"></h2>
-        <p class="section-subtitle" data-i18n="awards.subtitle"></p>
-      </div>
-
-      <div class="awards-grid">
-        <article class="award-item">
-          <div class="award-year" data-i18n="awards.award1.year"></div>
-          <h3 class="award-name" data-i18n="awards.award1.name"></h3>
-          <p class="award-org" data-i18n="awards.award1.org"></p>
-          <p class="award-desc" data-i18n="awards.award1.description"></p>
-        </article>
-
-        <article class="award-item">
-          <div class="award-year" data-i18n="awards.award2.year"></div>
-          <h3 class="award-name" data-i18n="awards.award2.name"></h3>
-          <p class="award-org" data-i18n="awards.award2.org"></p>
-          <p class="award-desc" data-i18n="awards.award2.description"></p>
-        </article>
-
-        <article class="award-item">
-          <div class="award-year" data-i18n="awards.award3.year"></div>
-          <h3 class="award-name" data-i18n="awards.award3.name"></h3>
-          <p class="award-org" data-i18n="awards.award3.org"></p>
-          <p class="award-desc" data-i18n="awards.award3.description"></p>
-        </article>
-
-        <article class="award-item">
-          <div class="award-year" data-i18n="awards.award4.year"></div>
-          <h3 class="award-name" data-i18n="awards.award4.name"></h3>
-          <p class="award-org" data-i18n="awards.award4.org"></p>
-          <p class="award-desc" data-i18n="awards.award4.description"></p>
-        </article>
-      </div>
+      <aside class="awards-summary" aria-labelledby="awards-heading">
+        <h3 id="awards-heading" data-i18n="awards.subtitle"></h3>
+        <ul>
+          <li>
+            <time datetime="2024" data-i18n="awards.award3.year"></time>
+            <strong data-i18n="awards.award3.name"></strong>
+            <span data-i18n="awards.award3.org"></span>
+          </li>
+          <li>
+            <time datetime="2023" data-i18n="awards.award4.year"></time>
+            <strong data-i18n="awards.award4.name"></strong>
+            <span data-i18n="awards.award4.org"></span>
+          </li>
+        </ul>
+      </aside>
     </div>
   </section>
 
@@ -453,11 +292,20 @@
         <div class="talks-grid">
           <article class="talk-card">
             <div class="pin"></div>
-            <span class="talk-date" data-i18n="talks.rsgt2023.date"></span>
-            <h3 class="talk-title" data-i18n="talks.rsgt2023.title"></h3>
-            <p class="talk-desc" data-i18n="talks.rsgt2023.description"></p>
-            <a href="https://speakerdeck.com/hayato_ukuk/zi-mu-ting-jue-zhang-hai-noaruda-xue-sheng-timuniyoruyi-sanaifa-yan-huan-jing-noxing-cheng"
-              target="_blank" class="talk-link" data-i18n="talks.rsgt2023.link"></a>
+            <span class="talk-date" data-i18n="talks.agilePbl2024.date"></span>
+            <h3 class="talk-title" data-i18n="talks.agilePbl2024.title"></h3>
+            <p class="talk-desc" data-i18n="talks.agilePbl2024.description"></p>
+            <a href="https://speakerdeck.com/fujiemon/lessons-learned-from-participating-in-rsgt2024-as-a-student"
+              target="_blank" rel="noopener" class="talk-link" data-i18n="talks.agilePbl2024.link"></a>
+          </article>
+
+          <article class="talk-card">
+            <div class="pin"></div>
+            <span class="talk-date" data-i18n="talks.unfrozen2024.date"></span>
+            <h3 class="talk-title" data-i18n="talks.unfrozen2024.title"></h3>
+            <p class="talk-desc" data-i18n="talks.unfrozen2024.description"></p>
+            <a href="https://speakerdeck.com/fujiemon/ting-jue-zhang-hai-toyin-sheng-qing-bao-chu-li" target="_blank" rel="noopener"
+              class="talk-link" data-i18n="talks.unfrozen2024.link"></a>
           </article>
 
           <article class="talk-card">
@@ -466,178 +314,23 @@
             <h3 class="talk-title" data-i18n="talks.scrum2023.title"></h3>
             <p class="talk-desc" data-i18n="talks.scrum2023.description"></p>
             <a href="https://speakerdeck.com/fujiemon/ting-koeniyi-razu-waiwaifa-yan-situtugasigasikai-fa-suru-tamenibi-yao-nakoto-sukuhuesufu-gang"
-              target="_blank" class="talk-link" data-i18n="talks.scrum2023.link"></a>
+              target="_blank" rel="noopener" class="talk-link" data-i18n="talks.scrum2023.link"></a>
           </article>
 
           <article class="talk-card">
             <div class="pin"></div>
-            <span class="talk-date" data-i18n="talks.unfrozen2024.date"></span>
-            <h3 class="talk-title" data-i18n="talks.unfrozen2024.title"></h3>
-            <p class="talk-desc" data-i18n="talks.unfrozen2024.description"></p>
-            <a href="https://speakerdeck.com/fujiemon/ting-jue-zhang-hai-toyin-sheng-qing-bao-chu-li" target="_blank"
-              class="talk-link" data-i18n="talks.unfrozen2024.link"></a>
-          </article>
-
-          <article class="talk-card">
-            <div class="pin"></div>
-            <span class="talk-date" data-i18n="talks.agilePbl2024.date"></span>
-            <h3 class="talk-title" data-i18n="talks.agilePbl2024.title"></h3>
-            <p class="talk-desc" data-i18n="talks.agilePbl2024.description"></p>
-            <a href="https://speakerdeck.com/fujiemon/lessons-learned-from-participating-in-rsgt2024-as-a-student"
-              target="_blank" class="talk-link" data-i18n="talks.agilePbl2024.link"></a>
+            <span class="talk-date" data-i18n="talks.rsgt2023.date"></span>
+            <h3 class="talk-title" data-i18n="talks.rsgt2023.title"></h3>
+            <p class="talk-desc" data-i18n="talks.rsgt2023.description"></p>
+            <a href="https://speakerdeck.com/hayato_ukuk/zi-mu-ting-jue-zhang-hai-noaruda-xue-sheng-timuniyoruyi-sanaifa-yan-huan-jing-noxing-cheng"
+              target="_blank" rel="noopener" class="talk-link" data-i18n="talks.rsgt2023.link"></a>
           </article>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== SHELF - 3つの棚 ===== -->
-  <section class="section shelf-section" id="shelf">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title" data-i18n="shelf.title"></h2>
-        <p class="section-subtitle" data-i18n="shelf.subtitle"></p>
-      </div>
-
-      <div class="shelves-container">
-        <!-- 本棚 - 木製 -->
-        <div class="shelf wood-shelf">
-          <h3 class="shelf-label" data-i18n="shelf.books.label"></h3>
-          <!-- 1段目 -->
-          <div class="shelf-row">
-            <div class="shelf-items books">
-              <div class="book" style="--book-color: #2F4F4F;" data-i18n-title="shelf.books.servant">
-                <span class="book-spine"></span>
-              </div>
-              <div class="book" style="--book-color: #4A0E4E;" data-i18n-title="shelf.books.reading">
-                <span class="book-spine"></span>
-              </div>
-              <div class="book" style="--book-color: #1a5f7a;" data-i18n-title="shelf.books.hamura">
-                <span class="book-spine"></span>
-              </div>
-            </div>
-            <div class="shelf-board"></div>
-          </div>
-          <!-- 2段目 -->
-          <div class="shelf-row">
-            <div class="shelf-items books">
-              <div class="book secret-book" style="--book-color: #8B0000;" data-i18n-title="shelf.books.secret">
-                <span class="book-spine"></span>
-              </div>
-              <div class="book" style="--book-color: #2d5a27;" data-i18n-title="shelf.books.drstone">
-                <span class="book-spine"></span>
-              </div>
-              <div class="book" style="--book-color: #a9953c;" data-i18n-title="shelf.books.bandwagon">
-                <span class="book-spine"></span>
-              </div>
-            </div>
-            <div class="shelf-board"></div>
-          </div>
-        </div>
-
-        <!-- 酒棚 - ガラス -->
-        <div class="shelf glass-shelf">
-          <h3 class="shelf-label" data-i18n="shelf.sake.label"></h3>
-          <!-- 1段目 -->
-          <div class="shelf-row">
-            <div class="shelf-items bottles">
-              <div class="bottle" data-i18n-title="shelf.sake.hachinohe">
-                <div class="bottle-body"></div>
-                <span class="bottle-label"></span>
-              </div>
-              <div class="bottle" data-i18n-title="shelf.sake.tasake">
-                <div class="bottle-body"></div>
-                <span class="bottle-label"></span>
-              </div>
-              <div class="bottle" data-i18n-title="shelf.sake.mizunara">
-                <div class="bottle-body"></div>
-                <span class="bottle-label"></span>
-              </div>
-            </div>
-            <div class="shelf-board glass"></div>
-            <div class="shelf-led"></div>
-          </div>
-        </div>
-
-        <!-- 音楽棚 - 黒スチール -->
-        <div class="shelf black-shelf">
-          <h3 class="shelf-label" data-i18n="shelf.music.label"></h3>
-          <!-- 1段目 -->
-          <div class="shelf-row">
-            <div class="shelf-items records">
-              <div class="record" data-i18n-title="shelf.music.takebuchi">
-                <div class="record-cover" style="--cover-color: #e74c3c;">
-                  <span class="record-title"></span>
-                </div>
-              </div>
-              <div class="record" data-i18n-title="shelf.music.snarky">
-                <div class="record-cover" style="--cover-color: #3498db;">
-                  <span class="record-title"></span>
-                </div>
-              </div>
-            </div>
-            <div class="shelf-board metal"></div>
-          </div>
-          <!-- 2段目 -->
-          <div class="shelf-row">
-            <div class="shelf-items records">
-              <div class="record" data-i18n-title="shelf.music.larnell">
-                <div class="record-cover" style="--cover-color: #9b59b6;">
-                  <span class="record-title"></span>
-                </div>
-              </div>
-              <div class="record" data-i18n-title="shelf.music.domoto">
-                <div class="record-cover" style="--cover-color: #27ae60;">
-                  <span class="record-title"></span>
-                </div>
-              </div>
-            </div>
-            <div class="shelf-board metal"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== SHELF ITEM MODAL - 棚アイテム詳細 ===== -->
-  <section class="shelf-modal" id="shelfModal">
-    <div class="shelf-modal-content">
-      <button class="shelf-modal-close" id="shelfModalClose">✕</button>
-      <div class="shelf-modal-inner">
-        <h2 class="shelf-modal-title" id="shelfModalTitle"></h2>
-        <p class="shelf-modal-desc" id="shelfModalDesc"></p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== SECRET ROOM - 隠し部屋 ===== -->
-  <section class="secret-room" id="secretRoom">
-    <div class="secret-content">
-      <button class="secret-close" id="secretClose" data-i18n="secret.close"></button>
-      <div class="secret-inner">
-        <h2 class="secret-title" data-i18n="secret.title"></h2>
-        <p class="secret-desc" data-i18n="secret.description"></p>
-
-        <div class="secret-grid">
-          <div class="secret-card">
-            <span class="secret-icon">🎮</span>
-            <h3 data-i18n="secret.game.title"></h3>
-            <p data-i18n="secret.game.content"></p>
-          </div>
-          <div class="secret-card">
-            <span class="secret-icon">🍣</span>
-            <h3 data-i18n="secret.sushi.title"></h3>
-            <p data-i18n="secret.sushi.content"></p>
-          </div>
-          <div class="secret-card">
-            <span class="secret-icon">✨</span>
-            <h3 data-i18n="secret.recent.title"></h3>
-            <p data-i18n="secret.recent.content"></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  </main>
 
   <!-- フッター -->
   <footer class="footer">
@@ -648,8 +341,8 @@
 
   <!-- ?v= は必ず更新すること。i18n.js / main.js は Cache-Control: max-age=14400 で
        配信されるため、付けないと HTML だけ新しく JS が古い状態が最大4時間続く。 -->
-  <script src="i18n.js?v=2.1.3"></script>
-  <script src="main.js?v=2.1.3"></script>
+  <script src="i18n.js?v=cleanup-4"></script>
+  <script src="main.js?v=cleanup-4"></script>
 </body>
 
 </html>
